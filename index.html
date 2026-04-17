@@ -25,13 +25,13 @@
 html, body { background: #F4F1EA !important; color: #1A1A1A !important; -webkit-text-size-adjust: 100%; }
 body { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; overflow-x: hidden; }
 
-.hero { background: #0D0D0D; color: #FFFFFF; padding: 80px 40px 120px; position: relative; overflow: hidden; }
-.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: #C8102E; }
+.hero { background: #0D0D0D; color: #FFFFFF; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: #C8102E; z-index: 2; }
 .hero::after {
 content: '';
 position: absolute;
 bottom: 0; left: 0; right: 0; top: 0;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630' preserveAspectRatio='xMidYMax meet'%3E%3Crect x='0' y='440' width='1200' height='190' fill='%230D0D0D'/%3E%3Crect x='0' y='438' width='1200' height='4' fill='%23C8102E' opacity='0.2'/%3E%3Crect x='0' y='390' width='48' height='50' fill='%23303030'/%3E%3Crect x='48' y='398' width='38' height='42' fill='%23343434'/%3E%3Crect x='86' y='382' width='26' height='58' fill='%23303030'/%3E%3Cpolygon points='118,250 138,250 150,440 106,440' fill='%233c3c3c'/%3E%3Crect x='118' y='232' width='32' height='22' fill='%23383838'/%3E%3Crect x='122' y='214' width='24' height='21' fill='%233c3c3c'/%3E%3Crect x='126' y='185' width='4' height='31' fill='%23555'/%3E%3Ccircle cx='128' cy='185' r='5' fill='%23C8102E' opacity='0.8'/%3E%3Crect x='154' y='325' width='52' height='115' fill='%23383838'/%3E%3Crect x='158' y='305' width='42' height='23' fill='%23343434'/%3E%3Crect x='162' y='285' width='32' height='23' fill='%23383838'/%3E%3Crect x='206' y='340' width='44' height='100' fill='%23323232'/%3E%3Crect x='210' y='320' width='34' height='23' fill='%23383838'/%3E%3Crect x='250' y='355' width='30' height='85' fill='%23353535'/%3E%3Crect x='280' y='175' width='58' height='265' fill='%23444'/%3E%3Crect x='284' y='155' width='50' height='23' fill='%233e3e3e'/%3E%3Crect x='288' y='134' width='42' height='24' fill='%23444'/%3E%3Crect x='292' y='112' width='34' height='25' fill='%233e3e3e'/%3E%3Crect x='296' y='88' width='26' height='27' fill='%23444'/%3E%3Crect x='300' y='64' width='18' height='27' fill='%233e3e3e'/%3E%3Crect x='307' y='38' width='4' height='28' fill='%23555'/%3E%3Ccircle cx='309' cy='38' r='5' fill='%23C8102E' opacity='0.95'/%3E%3Crect x='282' y='200' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='282' y='228' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='282' y='256' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='282' y='284' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='282' y='312' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='282' y='340' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='282' y='368' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='282' y='396' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='338' y='215' width='46' height='225' fill='%233e3e3e'/%3E%3Crect x='342' y='195' width='38' height='23' fill='%233a3a3a'/%3E%3Crect x='346' y='175' width='30' height='23' fill='%233e3e3e'/%3E%3Crect x='350' y='155' width='22' height='23' fill='%233a3a3a'/%3E%3Crect x='356' y='130' width='4' height='27' fill='%23555'/%3E%3Crect x='384' y='238' width='42' height='202' fill='%23383838'/%3E%3Crect x='388' y='218' width='34' height='23' fill='%233e3e3e'/%3E%3Crect x='392' y='198' width='26' height='23' fill='%23383838'/%3E%3Crect x='430' y='365' width='68' height='75' fill='%233a3a3a'/%3E%3Crect x='434' y='348' width='58' height='20' fill='%23404040'/%3E%3Crect x='498' y='355' width='38' height='85' fill='%23353535'/%3E%3Crect x='502' y='336' width='28' height='22' fill='%233a3a3a'/%3E%3Crect x='540' y='175' width='62' height='265' fill='%23464646'/%3E%3Crect x='544' y='154' width='54' height='24' fill='%23424242'/%3E%3Crect x='548' y='132' width='46' height='25' fill='%23464646'/%3E%3Crect x='552' y='110' width='38' height='25' fill='%23424242'/%3E%3Crect x='556' y='87' width='30' height='26' fill='%23464646'/%3E%3Crect x='560' y='64' width='22' height='26' fill='%23424242'/%3E%3Crect x='564' y='40' width='14' height='26' fill='%23464646'/%3E%3Crect x='569' y='16' width='4' height='26' fill='%23555'/%3E%3Ccircle cx='571' cy='16' r='5' fill='%23C8102E' opacity='0.9'/%3E%3Crect x='542' y='202' width='58' height='2' fill='%23525252'/%3E%3Crect x='542' y='228' width='58' height='2' fill='%23525252'/%3E%3Crect x='542' y='254' width='58' height='2' fill='%23525252'/%3E%3Crect x='542' y='280' width='58' height='2' fill='%23525252'/%3E%3Crect x='542' y='306' width='58' height='2' fill='%23525252'/%3E%3Crect x='542' y='332' width='58' height='2' fill='%23525252'/%3E%3Crect x='542' y='358' width='58' height='2' fill='%23525252'/%3E%3Crect x='542' y='384' width='58' height='2' fill='%23525252'/%3E%3Crect x='542' y='410' width='58' height='2' fill='%23525252'/%3E%3Crect x='606' y='255' width='50' height='185' fill='%23404040'/%3E%3Crect x='610' y='234' width='42' height='24' fill='%233c3c3c'/%3E%3Crect x='614' y='213' width='34' height='24' fill='%23404040'/%3E%3Crect x='618' y='192' width='26' height='24' fill='%233c3c3c'/%3E%3Crect x='656' y='230' width='54' height='210' fill='%233a3a3a'/%3E%3Crect x='660' y='208' width='46' height='25' fill='%23404040'/%3E%3Crect x='664' y='186' width='38' height='25' fill='%233a3a3a'/%3E%3Crect x='668' y='164' width='30' height='25' fill='%23404040'/%3E%3Crect x='676' y='140' width='4' height='26' fill='%23555'/%3E%3Ccircle cx='678' cy='140' r='4' fill='%23C8102E' opacity='0.75'/%3E%3Crect x='714' y='295' width='50' height='145' fill='%233e3e3e'/%3E%3Crect x='718' y='274' width='42' height='24' fill='%233a3a3a'/%3E%3Crect x='722' y='253' width='34' height='24' fill='%233e3e3e'/%3E%3Crect x='764' y='278' width='44' height='162' fill='%23383838'/%3E%3Crect x='768' y='257' width='36' height='24' fill='%233e3e3e'/%3E%3Crect x='772' y='236' width='28' height='24' fill='%23383838'/%3E%3Crect x='784' y='214' width='4' height='24' fill='%23555'/%3E%3Crect x='812' y='318' width='60' height='122' fill='%233c3c3c'/%3E%3Crect x='816' y='298' width='50' height='23' fill='%23383838'/%3E%3Crect x='820' y='278' width='40' height='23' fill='%233c3c3c'/%3E%3Crect x='876' y='345' width='68' height='95' fill='%23353535'/%3E%3Crect x='880' y='326' width='58' height='22' fill='%233a3a3a'/%3E%3Crect x='944' y='355' width='52' height='85' fill='%23303030'/%3E%3Crect x='948' y='336' width='40' height='22' fill='%23353535'/%3E%3Crect x='996' y='360' width='70' height='80' fill='%23323232'/%3E%3Crect x='1000' y='342' width='56' height='21' fill='%232e2e2e'/%3E%3Crect x='1066' y='365' width='134' height='75' fill='%232a2a2a'/%3E%3C/svg%3E");
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630' preserveAspectRatio='xMidYMax meet'%3E%3Crect x='0' y='440' width='1200' height='190' fill='%230D0D0D'/%3E%3Crect x='0' y='438' width='1200' height='4' fill='%23C8102E' opacity='0.2'/%3E%3Crect x='0' y='390' width='48' height='50' fill='%23303030'/%3E%3Crect x='48' y='398' width='38' height='42' fill='%23343434'/%3E%3Crect x='86' y='382' width='26' height='58' fill='%23303030'/%3E%3Cpolygon points='118,250 138,250 150,440 106,440' fill='%233c3c3c'/%3E%3Crect x='154' y='325' width='52' height='115' fill='%23383838'/%3E%3Crect x='206' y='340' width='44' height='100' fill='%23323232'/%3E%3Crect x='250' y='355' width='30' height='85' fill='%23353535'/%3E%3Crect x='280' y='175' width='58' height='265' fill='%23444'/%3E%3Crect x='284' y='155' width='50' height='23' fill='%233e3e3e'/%3E%3Crect x='288' y='134' width='42' height='24' fill='%23444'/%3E%3Crect x='292' y='112' width='34' height='25' fill='%233e3e3e'/%3E%3Crect x='296' y='88' width='26' height='27' fill='%23444'/%3E%3Crect x='307' y='38' width='4' height='28' fill='%23555'/%3E%3Ccircle cx='309' cy='38' r='5' fill='%23C8102E' opacity='0.95'/%3E%3Crect x='282' y='200' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='282' y='228' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='282' y='256' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='282' y='284' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='282' y='312' width='54' height='2' fill='%234e4e4e'/%3E%3Crect x='338' y='215' width='46' height='225' fill='%233e3e3e'/%3E%3Crect x='384' y='238' width='42' height='202' fill='%23383838'/%3E%3Crect x='430' y='365' width='68' height='75' fill='%233a3a3a'/%3E%3Crect x='498' y='355' width='38' height='85' fill='%23353535'/%3E%3Crect x='540' y='175' width='62' height='265' fill='%23464646'/%3E%3Crect x='544' y='154' width='54' height='24' fill='%23424242'/%3E%3Crect x='548' y='132' width='46' height='25' fill='%23464646'/%3E%3Crect x='552' y='110' width='38' height='25' fill='%23424242'/%3E%3Crect x='556' y='87' width='30' height='26' fill='%23464646'/%3E%3Crect x='569' y='16' width='4' height='26' fill='%23555'/%3E%3Ccircle cx='571' cy='16' r='5' fill='%23C8102E' opacity='0.9'/%3E%3Crect x='542' y='202' width='58' height='2' fill='%23525252'/%3E%3Crect x='542' y='228' width='58' height='2' fill='%23525252'/%3E%3Crect x='542' y='254' width='58' height='2' fill='%23525252'/%3E%3Crect x='606' y='255' width='50' height='185' fill='%23404040'/%3E%3Crect x='656' y='230' width='54' height='210' fill='%233a3a3a'/%3E%3Crect x='714' y='295' width='50' height='145' fill='%233e3e3e'/%3E%3Crect x='764' y='278' width='44' height='162' fill='%23383838'/%3E%3Crect x='812' y='318' width='60' height='122' fill='%233c3c3c'/%3E%3Crect x='876' y='345' width='68' height='95' fill='%23353535'/%3E%3Crect x='944' y='355' width='52' height='85' fill='%23303030'/%3E%3Crect x='996' y='360' width='70' height='80' fill='%23323232'/%3E%3Crect x='1066' y='365' width='134' height='75' fill='%232a2a2a'/%3E%3C/svg%3E");
 background-size: cover;
 background-position: center bottom;
 background-repeat: no-repeat;
@@ -39,11 +39,43 @@ opacity: 0.6;
 z-index: 0;
 pointer-events: none;
 }
-.hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-split { display: grid; grid-template-columns: 1fr 360px; min-height: 520px; position: relative; z-index: 1; }
+.hero-left { padding: 80px 48px 80px 40px; display: flex; flex-direction: column; justify-content: center; }
+.hero-right { background: rgba(255,255,255,0.97); padding: 40px 32px; display: flex; flex-direction: column; justify-content: center; }
 .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #F5A800; margin-bottom: 20px; }
-.hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 10vw, 96px); line-height: 0.95; letter-spacing: 0.01em; margin-bottom: 28px; color: #FFFFFF; }
+.hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 7vw, 84px); line-height: 0.95; letter-spacing: 0.01em; margin-bottom: 28px; color: #FFFFFF; }
 .hero h1 span { color: #C8102E; }
-.hero-sub { font-size: 19px; font-weight: 400; color: #E8E4DC; max-width: 580px; line-height: 1.65; }
+.hero-sub { font-size: 17px; font-weight: 400; color: #E8E4DC; max-width: 480px; line-height: 1.65; }
+
+/* SIDEBAR FORM */
+.sidebar-form h3 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.04em; color: #0D0D0D; margin-bottom: 4px; }
+.sidebar-form .form-sub-small { font-size: 13px; color: #666; margin-bottom: 20px; line-height: 1.5; }
+.sidebar-form label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #888; display: block; margin-bottom: 5px; margin-top: 10px; }
+.sidebar-form label:first-of-type { margin-top: 0; }
+.sidebar-form input[type="text"],
+.sidebar-form input[type="email"] { background: #F4F1EA; border: 1px solid #E0DCD4; color: #1A1A1A; padding: 10px 12px; font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; width: 100%; border-radius: 0; -webkit-appearance: none; }
+.sidebar-form input:focus { border-color: #C8102E; }
+.sidebar-form input::placeholder { color: #aaa; }
+.sidebar-form .field-note-small { font-size: 10px; color: #999; margin-top: 4px; line-height: 1.4; }
+.sidebar-form .sign-btn-small { background: #C8102E; color: #FFFFFF; border: none; padding: 14px; font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.1em; cursor: pointer; width: 100%; transition: background 0.2s; margin-top: 14px; display: block; }
+.sidebar-form .sign-btn-small:hover { background: #A50D25; }
+.sidebar-form .sign-btn-small:disabled { background: #aaa; cursor: not-allowed; }
+.sidebar-form .error-msg-small { color: #C8102E; font-size: 11px; margin-top: 6px; display: none; }
+.sidebar-success { display: none; text-align: center; padding: 20px 0; }
+.sidebar-success .check { font-size: 40px; margin-bottom: 10px; }
+.sidebar-success h4 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #C8102E; margin-bottom: 8px; }
+.sidebar-success p { font-size: 13px; color: #555; line-height: 1.5; }
+.sidebar-share { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; justify-content: center; }
+.sidebar-share a, .sidebar-share button { padding: 7px 12px; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-block; }
+.sidebar-share .tw { background: #1DA1F2; color: white; }
+.sidebar-share .fb { background: #1877F2; color: white; }
+.sidebar-share .cp { background: #444; color: white; }
+
+@media (max-width: 760px) {
+.hero-split { grid-template-columns: 1fr; }
+.hero-left { padding: 60px 24px 32px; }
+.hero-right { padding: 32px 24px 40px; }
+}
 
 .counter-bar { background: #FFFFFF; border-top: 4px solid #F5A800; padding: 22px 40px; }
 .counter-inner { max-width: 760px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -172,10 +204,39 @@ footer { padding: 20px 24px; }
 <body>
 
 <section class="hero">
-<div class="hero-inner">
+<div class="hero-split">
+<div class="hero-left">
 <div class="eyebrow">A Petition to Baltimore City Council</div>
-<h1>Small Business<br><span>Bill of Rights</span><br></h1>
+<h1>Small Business <span>Bill of Rights</span></h1>
 <p class="hero-sub">Baltimore's independent businesses are the lifeblood of our neighborhoods. Right now, they can be pushed out by landlords with zero legal protection. It's time for City Council to actually fight for the working class.</p>
+</div>
+<div class="hero-right">
+<div class="sidebar-form" id="sidebar-form">
+<h3>Add Your Name</h3>
+<p class="form-sub-small">Sign the petition. We'll route your signature to your City Council representative.</p>
+<label for="s-fname">First Name *</label>
+<input type="text" id="s-fname" placeholder="First name" autocomplete="given-name">
+<label for="s-lname">Last Name *</label>
+<input type="text" id="s-lname" placeholder="Last name" autocomplete="family-name">
+<label for="s-email">Email *</label>
+<input type="email" id="s-email" placeholder="your@email.com" autocomplete="email">
+<label for="s-address">Home Address *</label>
+<input type="text" id="s-address" placeholder="123 Main St, Baltimore, MD 21224" autocomplete="street-address">
+<div class="field-note-small">Used only to identify your council district. Never shared publicly.</div>
+<div class="error-msg-small" id="sidebar-error">Please fill in all required fields.</div>
+<button class="sign-btn-small" id="sidebar-btn" onclick="handleSidebarSign()">✊ Sign the Petition</button>
+</div>
+<div class="sidebar-success" id="sidebar-success">
+<div class="check">✊</div>
+<h4>Thank You, Baltimore.</h4>
+<p>Your signature has been added. Help spread the word.</p>
+<div class="sidebar-share">
+<a class="tw" href="https://twitter.com/intent/tweet?text=Baltimore%20needs%20a%20Small%20Business%20Bill%20of%20Rights.%20I%20just%20signed%20%E2%80%94%20join%20me.%20https%3A%2F%2Fwww.bmoresmallbusinessrights.com" target="_blank">X / Twitter</a>
+<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.bmoresmallbusinessrights.com" target="_blank">Facebook</a>
+<button class="cp" onclick="copyLink()">Copy Link</button>
+</div>
+</div>
+</div>
 </div>
 </section>
 
@@ -505,6 +566,39 @@ updates: false
 
 document.getElementById('logo-success').style.display = 'block';
 btn.style.display = 'none';
+}
+
+async function handleSidebarSign() {
+const fname = document.getElementById('s-fname').value.trim();
+const lname = document.getElementById('s-lname').value.trim();
+const email = document.getElementById('s-email').value.trim();
+const address = document.getElementById('s-address').value.trim();
+const errorEl = document.getElementById('sidebar-error');
+const btn = document.getElementById('sidebar-btn');
+
+if (!fname || !lname || !email || !address) {
+errorEl.style.display = 'block';
+return;
+}
+errorEl.style.display = 'none';
+btn.disabled = true;
+btn.textContent = 'Submitting...';
+
+try {
+await fetch(SCRIPT_URL, {
+method: 'POST',
+mode: 'no-cors',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({
+firstName: fname, lastName: lname, email: email,
+address: address, story: '', updates: false
+})
+});
+} catch (err) {}
+
+document.getElementById('sidebar-form').style.display = 'none';
+document.getElementById('sidebar-success').style.display = 'block';
+setTimeout(fetchCount, 2000);
 }
 
 async function handleSign() {
