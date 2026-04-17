@@ -358,7 +358,13 @@ Baltimore, MD
 <div class="logo-slot"><div class="logo-placeholder-text">Your Business Here</div></div>
 </div>
 <div class="add-logo-note">
-<strong>Own a Baltimore small business?</strong> Email us to add your logo and show City Council who's behind this. Every name matters.
+<strong>Own a Baltimore small business?</strong> Add your name below and we'll reach out to get your logo on this page.
+<div style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
+<input type="text" id="biz-name" placeholder="Business name" style="background:#1C1C1C; border:1px solid #444; color:#FFFFFF; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:100%; border-radius:0; -webkit-appearance:none;">
+<input type="text" id="biz-contact" placeholder="Your name and email" style="background:#1C1C1C; border:1px solid #444; color:#FFFFFF; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:100%; border-radius:0; -webkit-appearance:none;">
+<button onclick="handleLogoSubmit()" id="logo-btn" style="background:#C8102E; color:#FFFFFF; border:none; padding:14px 24px; font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:0.1em; cursor:pointer; width:100%;">Add My Business</button>
+<div id="logo-success" style="display:none; color:#F5A800; font-size:13px; font-weight:600; padding-top:4px;">✓ Got it! We'll be in touch about adding your logo.</div>
+</div>
 </div>
 </div>
 
@@ -448,6 +454,38 @@ fill.style.width = Math.min((current / GOAL) * 100, 100) + '%';
 if (progress < 1) requestAnimationFrame(update);
 }
 requestAnimationFrame(update);
+}
+
+async function handleLogoSubmit() {
+const bizName = document.getElementById('biz-name').value.trim();
+const bizContact = document.getElementById('biz-contact').value.trim();
+const btn = document.getElementById('logo-btn');
+
+if (!bizName || !bizContact) {
+alert('Please fill in your business name and contact info.');
+return;
+}
+btn.disabled = true;
+btn.textContent = 'Submitting...';
+
+try {
+await fetch(SCRIPT_URL, {
+method: 'POST',
+mode: 'no-cors',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({
+firstName: 'BUSINESS',
+lastName: 'LOGO REQUEST',
+email: bizContact,
+address: bizName,
+story: 'LOGO REQUEST: ' + bizName + ' — ' + bizContact,
+updates: false
+})
+});
+} catch (err) {}
+
+document.getElementById('logo-success').style.display = 'block';
+btn.style.display = 'none';
 }
 
 async function handleSign() {
