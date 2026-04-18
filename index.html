@@ -481,7 +481,7 @@ Baltimore, MD
 </div>
 </div>
 <div class="checkbox-row">
-<input type="checkbox" id="updates">
+<input type="checkbox" id="updates" checked>
 <label for="updates">Keep me updated on the Small Business Bill of Rights campaign and actions I can take.</label>
 </div>
 <div class="error-msg" id="error-msg">Please fill in your name, email, and home address to sign.</div>
@@ -571,6 +571,10 @@ document.getElementById('logo-success').style.display = 'block';
 btn.style.display = 'none';
 }
 
+function isValidEmail(email) {
+return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 async function handleSidebarSign() {
 const fname = document.getElementById('s-fname').value.trim();
 const lname = document.getElementById('s-lname').value.trim();
@@ -581,6 +585,12 @@ const btn = document.getElementById('sidebar-btn');
 
 if (!fname || !lname || !email || !address) {
 errorEl.style.display = 'block';
+errorEl.textContent = 'Please fill in all required fields.';
+return;
+}
+if (!isValidEmail(email)) {
+errorEl.style.display = 'block';
+errorEl.textContent = 'Please enter a valid email address.';
 return;
 }
 errorEl.style.display = 'none';
@@ -614,6 +624,12 @@ const btn = document.getElementById('sign-btn');
 
 if (!fname || !lname || !email || !address) {
 errorEl.style.display = 'block';
+errorEl.textContent = 'Please fill in your name, email, and home address to sign.';
+return;
+}
+if (!isValidEmail(email)) {
+errorEl.style.display = 'block';
+errorEl.textContent = 'Please enter a valid email address.';
 return;
 }
 errorEl.style.display = 'none';
