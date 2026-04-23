@@ -34,7 +34,7 @@
 --border: #C8DDE8;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { background: var(--sky); color: var(--ink); -webkit-text-size-adjust: 100%; color-scheme: light only; }
+html, body { background: var(--sky) !important; color: var(--ink) !important; -webkit-text-size-adjust: 100%; color-scheme: light only; }
 body { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; overflow-x: hidden; }
 
 /* ── TOP BANNER ── */
@@ -47,6 +47,7 @@ background: var(–sky);
 .top-banner img {
 width: 100%;
 display: block;
+max-height: 180px;
 object-fit: contain;
 }
 
@@ -265,7 +266,7 @@ animation: pulse 2s infinite;
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
 /* ── STATS BAR ── */
-.stats-bar { background: var(–red); padding: 36px 40px; }
+.stats-bar { background: var(–red) !important; padding: 36px 40px; }
 .stats-inner {
 max-width: 760px;
 margin: 0 auto;
@@ -371,7 +372,7 @@ text-transform: none;
 
 /* ── DATA STRIP ── */
 .data-strip {
-background: var(–ink);
+background: var(–ink) !important;
 padding: 36px 40px;
 margin-bottom: 52px;
 border-radius: 16px;
@@ -443,7 +444,7 @@ color: var(–ink);
 
 /* ── CALLOUT ── */
 .callout {
-background: var(–ink);
+background: var(–ink) !important;
 color: var(–white);
 padding: 52px 56px;
 margin: 0 0 52px;
@@ -593,7 +594,7 @@ text-align: center;
 padding: 8px;
 }
 .add-logo-note {
-background: var(–ink);
+background: var(–ink) !important;
 padding: 20px 24px;
 font-size: 13px;
 color: #C8C4BC;
@@ -604,7 +605,7 @@ border-radius: 12px;
 
 /* ── PETITION FORM ── */
 .petition-form {
-background: var(–ink);
+background: var(–ink) !important;
 color: var(–white);
 padding: 56px 40px;
 margin: 0 -40px;
@@ -960,7 +961,7 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 </div>
 
 <div class="demands">
-<div style="background:var(--ink); margin:0 -40px 28px; padding:28px 40px; border-radius:12px;">
+<div style="background:var(--ink) !important; margin:0 -40px 28px; padding:28px 40px; border-radius:12px;">
 <div style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--amber); margin-bottom:8px;">What we're demanding</div>
 <div style="font-family:'Bebas Neue',sans-serif; font-size:40px; letter-spacing:0.02em; color:white; line-height:1;">Here's What We're Fighting For</div>
 </div>
@@ -1004,7 +1005,7 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 <div class="precedent">
 <div class="section-label">Every city but ours</div>
 <h2>Every City But Ours</h2>
-<div class="bmore-missing-banner" style="background:var(--red); color:white; padding:16px 24px; border-radius:12px; margin-bottom:20px; display:flex; align-items:center; gap:16px;">
+<div class="bmore-missing-banner" style="background:var(--red) !important; color:white; padding:16px 24px; border-radius:12px; margin-bottom:20px; display:flex; align-items:center; gap:16px;">
 <div style="font-size:36px;">🔴</div>
 <div>
 <div style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.06em;">Baltimore has none of this.</div>
@@ -1285,5 +1286,4 @@ setInterval(fetchCount, 60000);
 </script>
 
 </body>
-</html>
 
