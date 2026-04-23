@@ -34,7 +34,7 @@
 --border: #C8DDE8;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { background: var(--sky) !important; color: var(--ink) !important; -webkit-text-size-adjust: 100%; color-scheme: light only; }
+html, body { background: var(--sky); color: var(--ink); -webkit-text-size-adjust: 100%; color-scheme: light only; }
 body { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; overflow-x: hidden; }
 
 /* ── TOP BANNER ── */
@@ -47,9 +47,7 @@ background: var(–sky);
 .top-banner img {
 width: 100%;
 display: block;
-max-height: 280px;
-object-fit: cover;
-object-position: center bottom;
+object-fit: contain;
 }
 
 /* ── HERO ── */
@@ -1288,3 +1286,4 @@ setInterval(fetchCount, 60000);
 
 </body>
 </html>
+
