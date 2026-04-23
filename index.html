@@ -41,7 +41,7 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; o
 .hero { background: #C8E6F5; padding: 0; position: relative; }
 .hero-inner { max-width: 1100px; margin: 0 auto; display: block; min-height: auto; }
 .hero-left { padding: 64px 48px 80px 40px; display: flex; flex-direction: column; justify-content: flex-start; gap: 24px; max-width: 680px; }
-.hero h1 { font-family: ‘Archivo Black’, sans-serif; font-size: clamp(28px, 4vw, 52px); line-height: 1.0; color: #1C1C1C; white-space: nowrap; }
+.hero h1 { font-family: ‘Archivo Black’, sans-serif; font-size: clamp(32px, 5vw, 56px); line-height: 1.05; color: #1C1C1C; }
 .hero h1 span { color: #D94F3D; }
 .hero-sub { font-size: 16px; font-weight: 400; color: #3D3D3D; max-width: 500px; line-height: 1.7; }
 
@@ -297,7 +297,7 @@ line-height: 1;
 @media (max-width: 760px) {
 .sign-fab { bottom: 20px; right: 20px; font-size: 15px; padding: 14px 22px; }
 .sign-drawer { width: 100vw; }
-.hero-left { padding: 48px 24px 80px; }
+.hero-left { padding: 32px 20px 80px; }
 }
 </style>
 
@@ -307,7 +307,7 @@ line-height: 1;
 <!-- TOP BANNER -->
 
 <div style="width:100%; overflow:hidden; line-height:0; background:#C8E6F5;">
-<img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/coalition-banner.png" alt="Baltimore rowhouses illustration" style="width:100%; display:block; object-fit:cover; object-position:center center; max-height:220px;">
+<img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/coalition-banner.png" alt="Baltimore rowhouses illustration" style="width:100%; display:block; object-fit:contain; max-height:200px;">
 </div>
 
 <!-- HERO -->
@@ -315,7 +315,7 @@ line-height: 1;
 <section class="hero">
 <div class="hero-inner">
 <div class="hero-left">
-<h1>Small Business <span>Bill of Rights</span></h1>
+<h1>Small Business <span style="white-space:nowrap;">Bill of Rights</span></h1>
 <p class="hero-sub">The dive bars, the record shops, the neighborhood spots that give Baltimore its charm — they're being pushed out. Out-of-state landlords can break leases with no notice, leave storefronts dark for tax write-offs, and pocket the money while our neighborhoods hollow out. It's completely legal. And it ends when enough of us say so.</p>
 <div style="display:flex; align-items:center; gap:10px; margin-top:4px;">
 <img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/favicon.png" alt="B'More Small Biz Rights Coalition logo" style="width:28px; height:28px; object-fit:contain; border-radius:6px;">
