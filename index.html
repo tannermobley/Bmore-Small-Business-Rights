@@ -319,7 +319,7 @@ line-height: 1;
 <div class="hero-inner">
 <div class="hero-left">
 <h1><span style="font-size:0.5em; display:block; color:#1C1C1C; letter-spacing:0.05em; margin-bottom:4px;">It's Time for a Baltimore</span><span>Small Business <span style="white-space:nowrap;">Bill of Rights</span></span></h1>
-<p class="hero-sub">The dive bars, the record shops, the neighborhood spots that give Baltimore its charm — they're being pushed out. Out-of-state landlords can break leases with no notice, leave storefronts dark for tax write-offs, and pocket the money while our neighborhoods hollow out. It's completely legal. And it ends when enough of us say so.</p>
+<p class="hero-sub">The dive bars, the record shops, the neighborhood spots that give Baltimore its charm — they're being pushed out. Some landlords can refuse to renew leases, raise rents with no required notice, or leave storefronts dark for years with no consequence — while our neighborhoods hollow out. It's completely legal. And it ends when enough of us say so.</p>
 <div style="display:flex; align-items:center; gap:10px; margin-top:4px; justify-content:center;">
 <img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/favicon.png" alt="B'More Small Biz Rights Coalition logo" style="width:28px; height:28px; object-fit:contain; border-radius:6px;">
 <span style="font-family:'Archivo Black', sans-serif; font-size:10px; color:#666; letter-spacing:0.18em; text-transform:uppercase;">An initiative of the B'More Small Biz Rights Coalition</span>
@@ -374,30 +374,7 @@ line-height: 1;
 Baltimore's small businesses don't just create jobs — <strong>every $100 spent at a local Baltimore business keeps $48 circulating in our local economy.</strong> At a national chain? Less than $14 stays here. Independent businesses are the tax base, the community anchors, and the soul of neighborhoods across this city — from Fells Point to Hampden, Federal Hill to Waverly. And right now, they have <strong>almost no legal protection</strong> against a landlord who decides to push them out. There are many reasons small businesses struggle and storefronts go dark. But the absence of basic legal protections for commercial tenants is a massive piece of the puzzle — and it's one Baltimore City Council can actually fix.
 </p>
 
-<div class="photo-section">
-<div class="section-label">This is happening across Baltimore</div>
-<h2>Real Businesses. Real Stories.</h2>
-<div class="photo-grid-main" style="margin-bottom:12px;">
-<div class="photo-item large">
-<img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/IMG_5023.jpeg" alt="Greyhound Tavern Fells Point Baltimore" loading="lazy">
-<div class="photo-caption">Greyhound Tavern — Fells Point</div>
-</div>
-<div style="display:flex; flex-direction:column; gap:12px;">
-<div class="photo-item medium">
-<img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/IMG_5019.jpeg" alt="Cultivated Creations pushed out by landlord Baltimore" loading="lazy">
-<div class="photo-caption">Cultivated Creations — Baltimore</div>
-</div>
-<div class="photo-item medium">
-<img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/IMG_5018.jpeg" alt="Empty storefront Baltimore" loading="lazy">
-<div class="photo-caption">Baltimore, MD</div>
-</div>
-</div>
-</div>
-<div style="margin-top:12px; position:relative; overflow:hidden; border-radius:12px;">
-<img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/IMG_5020.jpeg" alt="Vacant commercial space Baltimore" style="width:100%; height:220px; object-fit:cover; display:block; border-radius:12px;">
-<div class="photo-caption">Baltimore, MD</div>
-</div>
-</div>
+
 
 <div class="data-strip">
 <div class="data-strip-label">The math doesn't lie</div>
@@ -544,7 +521,8 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 <strong>Own a Baltimore small business?</strong> Add your name below and we'll reach out to get your logo on this page.
 <div style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
 <input type="text" id="biz-name" placeholder="Business name" style="background:#2a2a2a; border:2px solid #444; color:#FFFFFF; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:100%; border-radius:8px; -webkit-appearance:none;">
-<input type="text" id="biz-contact" placeholder="Your name and email" style="background:#2a2a2a; border:2px solid #444; color:#FFFFFF; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:100%; border-radius:8px; -webkit-appearance:none;">
+<input type="text" id="biz-contact-name" placeholder="Your name" style="background:#2a2a2a; border:2px solid #444; color:#FFFFFF; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:100%; border-radius:8px; -webkit-appearance:none;">
+<input type="email" id="biz-contact-email" placeholder="Your email" style="background:#2a2a2a; border:2px solid #444; color:#FFFFFF; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:100%; border-radius:8px; -webkit-appearance:none;">
 <button onclick="handleLogoSubmit()" id="logo-btn" style="background:#D94F3D; color:#FFFFFF; border:none; padding:14px 24px; font-family:'Archivo Black',sans-serif; font-size:18px; letter-spacing:0.1em; cursor:pointer; width:100%; border-radius:8px;">Add My Business</button>
 <div id="logo-success" style="display:none; color:#E8A838; font-size:13px; font-weight:600; padding-top:4px;">✓ Got it! We'll be in touch about adding your logo.</div>
 </div>
@@ -647,9 +625,394 @@ requestAnimationFrame(update);
 
 async function handleLogoSubmit() {
 const bizName = document.getElementById('biz-name').value.trim();
-const bizContact = document.getElementById('biz-contact').value.trim();
+const bizContactName = document.getElementById('biz-contact-name').value.trim();
+const bizContactEmail = document.getElementById('biz-contact-email').value.trim();
+const bizContact = bizContactName + ' — ' + bizContactEmail;
 const btn = document.getElementById('logo-btn');
-if (!bizName || !bizContact) { alert('Please fill in your business name and contact info.'); return; }
+if (!bizName || !bizContactName || !bizContactEmail) { alert('Please fill in your business name and contact info.'); return; }
+btn.disabled = true; btn.textContent = 'Submitting...';
+try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ firstName: 'BUSINESS', lastName: 'LOGO REQUEST', email: bizContact, address: bizName, story: 'LOGO REQUEST: ' + bizName + ' — ' + bizContact, updates: false }) }); } catch (err) {}
+document.getElementById('logo-success').style.display = 'block';
+btn.style.display = 'none';
+}
+
+function isValidEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+
+async function handleSidebarSign() {
+const fname = document.getElementById('s-fname').value.trim();
+const lname = document.getElementById('s-lname').value.trim();
+const email = document.getElementById('s-email').value.trim();
+const address = document.getElementById('s-address').value.trim();
+const errorEl = document.getElementById('sidebar-error');
+const btn = document.getElementById('sidebar-btn');
+if (!fname || !lname || !email || !address) { errorEl.style.display = 'block'; errorEl.textContent = 'Please fill in all required fields.'; return; }
+if (!isValidEmail(email)) { errorEl.style.display = 'block'; errorEl.textContent = 'Please enter a valid email address.'; return; }
+errorEl.style.display = 'none'; btn.disabled = true; btn.textContent = 'Submitting...';
+try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ firstName: fname, lastName: lname, email: email, address: address, story: '', updates: false }) }); } catch (err) {}
+document.getElementById('sidebar-form').style.display = 'none';
+document.getElementById('sidebar-success').style.display = 'block';
+setTimeout(fetchCount, 2000);
+}
+
+async function handleSign() {
+const fname = document.getElementById('fname').value.trim();
+const lname = document.getElementById('lname').value.trim();
+const email = document.getElementById('email').value.trim();
+const address = document.getElementById('address').value.trim();
+const errorEl = document.getElementById('error-msg');
+const btn = document.getElementById('sign-btn');
+if (!fname || !lname || !email || !address) { errorEl.style.display = 'block'; errorEl.textContent = 'Please fill in your name, email, and home address to sign.'; return; }
+if (!isValidEmail(email)) { errorEl.style.display = 'block'; errorEl.textContent = 'Please enter a valid email address.'; return; }
+errorEl.style.display = 'none'; btn.disabled = true; btn.textContent = 'Submitting...';
+try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ firstName: fname, lastName: lname, email: email, address: address, story: document.getElementById('comment').value.trim(), updates: document.getElementById('updates').checked }) }); } catch (err) {}
+document.getElementById('form-body').style.display = 'none';
+document.getElementById('success-msg').style.display = 'block';
+setTimeout(fetchCount, 2000);
+}
+
+function copyLink() {
+navigator.clipboard.writeText(window.location.href).then(() => {
+const btn = document.querySelector('.share-btn.copy');
+btn.textContent = 'Copied!';
+setTimeout(() => btn.textContent = 'Copy Link', 2000);
+});
+}
+
+window.addEventListener('load', fetchCount);
+setInterval(fetchCount, 60000);
+
+function openDrawer() {
+document.getElementById('sign-drawer').classList.add('open');
+document.getElementById('drawer-overlay').classList.add('open');
+document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+document.getElementById('sign-drawer').classList.remove('open');
+document.getElementById('drawer-overlay').classList.remove('open');
+document.body.style.overflow = '';
+}
+async function handleDrawerSign() {
+const fname = document.getElementById('d-fname').value.trim();
+const lname = document.getElementById('d-lname').value.trim();
+const email = document.getElementById('d-email').value.trim();
+const address = document.getElementById('d-address').value.trim();
+const errorEl = document.getElementById('drawer-error');
+const btn = document.getElementById('drawer-btn');
+if (!fname || !lname || !email || !address) {
+errorEl.style.display = 'block';
+errorEl.textContent = 'Please fill in all required fields.';
+return;
+}
+if (!isValidEmail(email)) {
+errorEl.style.display = 'block';
+errorEl.textContent = 'Please enter a valid email address.';
+return;
+}
+errorEl.style.display = 'none';
+btn.disabled = true;
+btn.textContent = 'Submitting...';
+try {
+await fetch(SCRIPT_URL, {
+method: 'POST', mode: 'no-cors',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ firstName: fname, lastName: lname, email: email, address: address, story: '', updates: false })
+});
+} catch (err) {}
+document.getElementById('drawer-form-body').style.display = 'none';
+document.getElementById('drawer-success').style.display = 'block';
+setTimeout(fetchCount, 2000);
+}
+</script>
+
+
+<!-- SIGN FAB -->
+<button class="sign-fab" onclick="openDrawer()">✊ Sign the Petition</button>
+
+<!-- SIGN DRAWER -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+<div class="sign-drawer" id="sign-drawer">
+<button class="drawer-close" onclick="closeDrawer()">✕</button>
+<div id="drawer-form-body">
+<h3>Add Your Name</h3>
+<p class="form-sub-small">Sign the petition. We'll route your signature to your City Council representative.</p>
+<label for="d-fname">First Name *</label>
+<input type="text" id="d-fname" placeholder="First name" autocomplete="given-name">
+<label for="d-lname">Last Name *</label>
+<input type="text" id="d-lname" placeholder="Last name" autocomplete="family-name">
+<label for="d-email">Email *</label>
+<input type="email" id="d-email" placeholder="your@email.com" autocomplete="email">
+<label for="d-address">Home Address *</label>
+<input type="text" id="d-address" placeholder="123 Main St, Baltimore, MD 21224" autocomplete="street-address">
+<div class="field-note-small">Used only to identify your council district. Never shared publicly.</div>
+<div class="error-msg-small" id="drawer-error"></div>
+<button class="sign-btn-small" id="drawer-btn" onclick="handleDrawerSign()">✊ Sign the Petition</button>
+</div>
+<div class="drawer-success" id="drawer-success">
+<div class="check">✊</div>
+<h4>Thank You, Baltimore.</h4>
+<p>Your signature has been added. Help spread the word.</p>
+<div class="drawer-share">
+<a class="tw" href="https://twitter.com/intent/tweet?text=Baltimore%20needs%20a%20Small%20Business%20Bill%20of%20Rights.%20I%20just%20signed%20%E2%80%94%20join%20me.%20https%3A%2F%2Fwww.bmoresmallbusinessrights.com" target="_blank">X / Twitter</a>
+<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.bmoresmallbusinessrights.com" target="_blank">Facebook</a>
+<button class="cp" onclick="copyLink()">Copy Link</button>
+</div>
+</div>
+</div>
+</body>
+</html> <div class="data-strip">
+<div class="data-strip-label">The math doesn't lie</div>
+<div class="data-grid">
+<div class="data-item">
+<div class="data-big"></div>
+<div class="data-desc"><a href="https://lsbe.d.umn.edu/articles/expert-alert-economic-impact-shopping-local" target="_blank" style="color:#C8C4BC; text-decoration:underline;">Of every $100 spent locally stays in Baltimore. Spend it at a national chain and less than $14 stays here.</a></div>
+</div>
+<div class="data-item">
+<div class="data-big"></div>
+<div class="data-desc"><a href="https://www.baltimoredevelopment.com/articles/5-ways-to-support-baltimore-black-owned-businesses-during-black-business-month" target="_blank" style="color:#C8C4BC; text-decoration:underline;">Of all new U.S. jobs come from small businesses — the same businesses Baltimore is failing to protect</a></div>
+</div>
+<div class="data-item">
+<div class="data-big"></div>
+<div class="data-desc">Laws on the books in Baltimore protecting commercial tenants from lease-breaking or landlord harassment</div>
+</div>
+</div>
+</div>
+
+<div class="problems">
+<div class="section-label">What's happening on our streets</div>
+<h2>The Rules Are Rigged Against Us</h2>
+<div class="problem-item">
+<div class="problem-number">01</div>
+<div class="problem-text">
+<strong>Businesses are being pushed out with no recourse</strong>
+<p>Right now in Fells Point, beloved businesses are being pushed out by landlords while owners have zero meaningful legal protection. Small business owners pour tens of thousands of dollars into buildouts, equipment, and staff and can be pushed out on a whim. In Baltimore, that investment simply disappears.</p>
+</div>
+</div>
+<div class="problem-item">
+<div class="problem-number">02</div>
+<div class="problem-text">
+<strong>Empty storefronts are more profitable than thriving ones</strong>
+<p>Drive down Fleet Street in Fells Point, W. 36th Street in Hampden, or Greenmount Avenue in Waverly. Count the vacant storefronts — many have been dark for years. When residential rent upstairs already covers the mortgage, leaving commercial space empty costs landlords almost nothing while avoiding the obligations that come with a tenant. <a href="https://blockclubchicago.org/2021/10/04/some-landlords-keep-their-storefronts-empty-for-years-and-get-tax-breaks-for-it-business-leaders-want-to-curb-that/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Add in tax write-offs for vacancy losses and the incentive to sit on empty storefronts becomes clear.</a> A broken incentive structure is hollowing out our neighborhoods block by block.</p>
+</div>
+</div>
+<div class="problem-item">
+<div class="problem-number">03</div>
+<div class="problem-text">
+<strong>Absentee owners treat Baltimore like a portfolio, not a home</strong>
+<p>Many of Baltimore's commercial properties are owned by people who don't live here, don't shop here, and have no stake in this community. They prioritize tax write-offs and speculative returns over the businesses and neighbors who actually make Baltimore worth living in. When our city suffers, they don't feel it.</p>
+</div>
+</div>
+</div>
+
+<div class="callout">
+<p>"There is more money to be made keeping a Baltimore storefront <strong>dark</strong> than renting it to a small business. That is a broken system, and it is hollowing out our neighborhoods block by block."</p>
+<div style="margin-top:20px; font-size:12px; color:rgba(255,255,255,0.5); font-style:normal; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; position:relative; z-index:1;">— Anonymous Fells Point business owner</div>
+</div>
+
+<div class="demands">
+<div style="background:#1C1C1C; margin:0 -40px 28px; padding:28px 40px; border-radius:12px;">
+<div style="font-family:'Archivo Black', sans-serif; font-size:40px; letter-spacing:0.02em; color:white; line-height:1;">What We're Fighting For</div>
+</div>
+<div style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#666; margin-bottom:16px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:28px; height:2px; background:#D94F3D; flex-shrink:0;"></span>Baltimore City Council</div>
+<div class="demand-item">
+<div class="demand-icon">🛡️</div>
+<div class="demand-text">
+<strong>Anti-Harassment &amp; Lease Protections</strong>
+<p>NYC passed this law because landlords were shutting off heat in winter and burying tenants in bogus court filings to make them give up and leave. <strong>None of that is illegal in Baltimore.</strong> We're calling for <a href="https://www.anhd.org/press-release/commercial-tenants-have-new-protection-against-landlord-harassment/" target="_blank" style="color:#3D3D3D; text-decoration:underline;"><strong>civil penalties up to $50,000</strong></a> for bad-faith tactics designed to push tenants out.</p>
+</div>
+</div>
+<div class="demand-item">
+<div class="demand-icon">📋</div>
+<div class="demand-text">
+<strong>Extended Notice Requirements</strong>
+<p>Require landlords to give small businesses at least <strong>90 days notice</strong> before any rent increase over 8% or lease termination, so they have a real chance to plan and stay.</p>
+</div>
+</div>
+<div class="demand-item">
+<div class="demand-icon">🏚️</div>
+<div class="demand-text">
+<strong>Vacant Storefront Accountability</strong>
+<p><a href="https://www.cbsnews.com/baltimore/news/baltimore-city-council-approves-tax-hike-vacant-homes/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Baltimore City just passed a vacancy tax on abandoned residential properties</a> — 3 times the normal tax rate, escalating each year. We're calling on City Council to extend that same logic to commercial storefronts left vacant for more than 6 months without being actively listed at fair market rate. <strong>The rate needs to make vacancy unprofitable.</strong> Revenue goes into a <strong>Baltimore Small Business Assistance Fund</strong>, providing grants to local businesses for buildouts, equipment, and first-year costs — prioritizing vacant corridors and underserved neighborhoods.</p>
+</div>
+</div>
+<div class="demand-item">
+<div class="demand-icon">🔧</div>
+<div class="demand-text">
+<strong>Basic Maintenance Standards</strong>
+<p>In Baltimore, a landlord can write a commercial lease that sticks a small business with a $15,000 AC repair bill or a burst water main that shuts you down for weeks. <strong>There's no floor.</strong> <a href="https://mgaleg.maryland.gov/mgawebsite/laws/StatuteText?article=rp&section=8-211&enactments=False&archived=False" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Residential tenants have baseline protections that can't be signed away</a> — any commercial lease should require landlords to maintain the systems that keep a space legally operable. <strong>Heating, cooling, plumbing, electrical.</strong> Not cosmetics. The basics.</p>
+</div>
+</div>
+<div class="demand-item">
+<div class="demand-icon">🏗️</div>
+<div class="demand-text">
+<strong>Developer-Funded Relocation Assistance and Right to Return</strong>
+<p>When a building sale or redevelopment project forces a small business to vacate, the developer is responsible — <strong>not the city, and not the tenant.</strong> We're calling for developers to provide direct relocation assistance covering moving costs and first-month expenses at a comparable space <strong>within a half mile</strong> of the original location — <a href="https://antidisplacement.org/profile/small-business-impact-opportunity-fund-denver-co/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">a standard used in Denver's relocation assistance program</a>. When the redeveloped space is reoccupied, the displaced business has a <strong>right of first return</strong> at a comparable market rate. The people who profit from redevelopment shouldn't be doing it on the backs of the businesses and communities that made those neighborhoods worth investing in.</p>
+</div>
+</div>
+<div class="demand-item">
+<div class="demand-icon">🌐</div>
+<div class="demand-text">
+<strong>Language Accessible Lease Agreements</strong>
+<p><strong>No one should have to sign a contract they can't fully understand.</strong> Landlords should provide Spanish lease translations for tenants whose primary language is Spanish, using a city-provided template. Baltimore is authorized to expand to additional languages based on community need.</p>
+</div>
+</div>
+<div style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#666; margin:28px 0 16px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:28px; height:2px; background:#D94F3D; flex-shrink:0;"></span>Maryland General Assembly</div>
+<div class="demand-item">
+<div class="demand-icon">🏠</div>
+<div class="demand-text">
+<strong>Non-Resident Property Tax Surcharge</strong>
+<p><strong>Commercial property owners who do not pay Maryland income taxes should pay a higher property tax rate on commercial holdings.</strong> This requires action from the Maryland General Assembly — and we're calling on Baltimore's delegation to lead that fight. If you profit from Maryland communities without contributing to the tax base, you pay your fair share back. This targets the same behavior as an absentee landlord tax but is built around tax status rather than residency — a cleaner legal framework that <a href="https://law.justia.com/codes/new-york/2006/new-york-city-administrative-code-new/adc011-238_11-238.html" target="_blank" style="color:#3D3D3D; text-decoration:underline;">other jurisdictions have used successfully</a>. We welcome investment that activates properties. This targets those who sit on them.</p>
+</div>
+</div>
+</div>
+
+<div class="precedent">
+<div class="section-label">Proven elsewhere</div>
+<h2>This Isn't a New Idea. Baltimore Is Just Behind.</h2>
+
+<div class="city-cards">
+<div class="city-card">
+<div class="city-name">🗽 New York City</div>
+<p><a href="https://www.anhd.org/press-release/commercial-tenants-have-new-protection-against-landlord-harassment/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Commercial Tenant Anti-Harassment Law</a> bans bad-faith tactics with civil penalties up to <strong>$50,000</strong>, plus free legal aid through the Dept. of Small Business Services.</p>
+</div>
+<div class="city-card">
+<div class="city-name">🏛️ Washington D.C.</div>
+<p><a href="https://ggwash.org/view/98188/dc-has-been-a-leader-in-residential-tenant-protections-heres-how-it-could-better-protect-small-business-tenants" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Our neighbor 40 miles south</a> requires landlords to provide written notice before filing eviction and bans self-help evictions entirely — protections Baltimore businesses don't have.</p>
+</div>
+<div class="city-card">
+<div class="city-name">🌴 Los Angeles</div>
+<p><a href="https://antidisplacement.org/profile/commercial-tenant-protections-ctp-ordinance-los-angeles-ca/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Made commercial tenant protections <strong>permanent in 2022</strong></a> for businesses with 9 or fewer employees, including full anti-harassment provisions.</p>
+</div>
+</div>
+<div class="mamdani-note">
+<strong>Cities are finding new ways to make absentee property owners pay their fair share.</strong> <a href="https://www.nyc.gov/mayors-office/news/2026/04/mayor-mamdani--governor-hochul-announce-state-s-first-pied-a-ter" target="_blank" style="color:#1C1C1C; text-decoration:underline;">New York City Mayor Zohran Mamdani just enacted a pied-à-terre tax on luxury second homes owned by non-residents — backed by <strong>93% of New Yorkers</strong> and projected to raise <strong>$500 million a year</strong>.</a> <a href="https://abc7news.com/amp/post/remember-vacant-storefront-tax-san-francisco-heres-how-going/16588700/" target="_blank" style="color:#1C1C1C; text-decoration:underline;">San Francisco's vacant storefront tax has already collected $5 million</a> — and vacancy rates are dropping. The principle is the same one we're applying here: if you profit from a city without living in it or investing in its community, you owe more back. Baltimore can apply that same logic to absentee commercial landlords letting our storefronts rot.
+</div>
+</div>
+
+<div class="supporters">
+<div class="section-label">Standing with Baltimore's small businesses</div>
+<h2>Businesses That Support This</h2>
+<p class="supporters-sub">These Baltimore small businesses stand behind the Small Business Bill of Rights. Is your business in? Get in touch to add your logo here.</p>
+<div class="logo-grid">
+<div class="logo-slot"><div class="logo-placeholder-text">Your Business Here</div></div>
+<div class="logo-slot"><div class="logo-placeholder-text">Your Business Here</div></div>
+<div class="logo-slot"><div class="logo-placeholder-text">Your Business Here</div></div>
+<div class="logo-slot"><div class="logo-placeholder-text">Your Business Here</div></div>
+<div class="logo-slot"><div class="logo-placeholder-text">Your Business Here</div></div>
+<div class="logo-slot"><div class="logo-placeholder-text">Your Business Here</div></div>
+</div>
+<div class="add-logo-note">
+<strong>Own a Baltimore small business?</strong> Add your name below and we'll reach out to get your logo on this page.
+<div style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
+<input type="text" id="biz-name" placeholder="Business name" style="background:#2a2a2a; border:2px solid #444; color:#FFFFFF; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:100%; border-radius:8px; -webkit-appearance:none;">
+<input type="text" id="biz-contact-name" placeholder="Your name" style="background:#2a2a2a; border:2px solid #444; color:#FFFFFF; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:100%; border-radius:8px; -webkit-appearance:none;">
+<input type="email" id="biz-contact-email" placeholder="Your email" style="background:#2a2a2a; border:2px solid #444; color:#FFFFFF; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:100%; border-radius:8px; -webkit-appearance:none;">
+<button onclick="handleLogoSubmit()" id="logo-btn" style="background:#D94F3D; color:#FFFFFF; border:none; padding:14px 24px; font-family:'Archivo Black',sans-serif; font-size:18px; letter-spacing:0.1em; cursor:pointer; width:100%; border-radius:8px;">Add My Business</button>
+<div id="logo-success" style="display:none; color:#E8A838; font-size:13px; font-weight:600; padding-top:4px;">✓ Got it! We'll be in touch about adding your logo.</div>
+</div>
+</div>
+</div>
+
+<div class="petition-form" id="petition-form-section">
+<h2>Add Your Name</h2>
+<p class="form-sub">Adding your name tells Baltimore City Council that real constituents — across every district — are demanding change. The more names we have, the harder this is to ignore.</p>
+<div id="form-body">
+<div class="form-row">
+<div class="form-group">
+<label for="fname">First Name *</label>
+<input type="text" id="fname" placeholder="First name" autocomplete="given-name">
+</div>
+<div class="form-group">
+<label for="lname">Last Name *</label>
+<input type="text" id="lname" placeholder="Last name" autocomplete="family-name">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group full">
+<label for="email">Email *</label>
+<input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group full">
+<label for="address">Home Address *</label>
+<input type="text" id="address" placeholder="123 Main St, Baltimore, MD 21224" autocomplete="street-address">
+<div class="field-note">Baltimore City has 14 council districts. Your address lets us route your signature to your specific councilmember — so it lands on the right desk, not just City Hall in general. Your address is never shared publicly.</div>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group full">
+<label for="comment">Your Story (optional)</label>
+<textarea id="comment" placeholder="Own a small business? Been affected by a landlord? Your story may be shared with City Council..."></textarea>
+</div>
+</div>
+<div class="checkbox-row">
+<input type="checkbox" id="updates" checked>
+<label for="updates">Keep me updated on the Small Business Bill of Rights campaign and actions I can take.</label>
+</div>
+<div class="error-msg" id="error-msg">Please fill in your name, email, and home address to sign.</div>
+<button class="sign-btn" id="sign-btn" onclick="handleSign()">✊ Sign the Petition</button>
+</div>
+<div class="success-msg" id="success-msg">
+<div class="check">✊</div>
+<h3>Thank You, Baltimore.</h3>
+<p>Your signature has been added. We're building a movement — and every name brings us closer to real change for small businesses across this city. Help spread the word by sharing the petition.</p>
+<div class="share-btns">
+<a class="share-btn twitter" href="https://twitter.com/intent/tweet?text=Baltimore%20needs%20a%20Small%20Business%20Bill%20of%20Rights.%20I%20just%20signed%20the%20petition%20%E2%80%94%20join%20me.%20https%3A%2F%2Fwww.bmoresmallbusinessrights.com" target="_blank">X / Twitter</a>
+<a class="share-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.bmoresmallbusinessrights.com" target="_blank">Facebook</a>
+<a class="share-btn bluesky" href="https://bsky.app/intent/compose?text=Baltimore%20needs%20a%20Small%20Business%20Bill%20of%20Rights.%20I%20just%20signed%20the%20petition%20%E2%80%94%20join%20me.%20https%3A%2F%2Fwww.bmoresmallbusinessrights.com" target="_blank">Bluesky</a>
+<a class="share-btn reddit" href="https://reddit.com/submit?url=https%3A%2F%2Fwww.bmoresmallbusinessrights.com&title=Baltimore%20needs%20a%20Small%20Business%20Bill%20of%20Rights" target="_blank">Reddit</a>
+<button class="share-btn copy" onclick="copyLink()">Copy Link</button>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<footer>
+<div class="footer-logo">
+<img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/favicon.png" alt="logo">
+<span style="font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; color:#666; letter-spacing:0.02em;">An initiative of the B'More Small Biz Rights Coalition</span>
+</div>
+<span style="color:#C8DDE8;">|</span>
+<a href="https://instagram.com/bmoresmallbizrights" target="_blank" style="color:#D94F3D; font-weight:600; text-decoration:none;">📷 @bmoresmallbizrights</a>
+</footer>
+
+<script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby-sitgFUVn7AEjZSfjAuqkynbj4SQt5uvbbOAMK7D8rGQAhAwjyMKgqd3jvJgC3_Sh/exec';
+const GOAL = 500;
+
+async function fetchCount() {
+try {
+const res = await fetch(SCRIPT_URL);
+const data = await res.json();
+animateCount(Math.max(0, data.count || 0));
+} catch (err) { document.getElementById('sig-count').textContent = '0'; }
+}
+
+function animateCount(target) {
+const el = document.getElementById('sig-count');
+const fill = document.getElementById('progress-fill');
+const startTime = performance.now();
+function update(now) {
+const progress = Math.min((now - startTime) / 1400, 1);
+const eased = 1 - Math.pow(1 - progress, 3);
+const current = Math.floor(eased * target);
+el.textContent = current.toLocaleString();
+fill.style.width = Math.min((current / GOAL) * 100, 100) + '%';
+if (progress < 1) requestAnimationFrame(update);
+}
+requestAnimationFrame(update);
+}
+
+async function handleLogoSubmit() {
+const bizName = document.getElementById('biz-name').value.trim();
+const bizContactName = document.getElementById('biz-contact-name').value.trim();
+const bizContactEmail = document.getElementById('biz-contact-email').value.trim();
+const bizContact = bizContactName + ' — ' + bizContactEmail;
+const btn = document.getElementById('logo-btn');
+if (!bizName || !bizContactName || !bizContactEmail) { alert('Please fill in your business name and contact info.'); return; }
 btn.disabled = true; btn.textContent = 'Submitting...';
 try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ firstName: 'BUSINESS', lastName: 'LOGO REQUEST', email: bizContact, address: bizName, story: 'LOGO REQUEST: ' + bizName + ' — ' + bizContact, updates: false }) }); } catch (err) {}
 document.getElementById('logo-success').style.display = 'block';
