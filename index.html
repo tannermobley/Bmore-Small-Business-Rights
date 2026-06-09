@@ -137,6 +137,51 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; o
 @media (max-width: 900px) { .demands-grid { grid-template-columns: 1fr; } }
 
 .demand-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 14px; padding: 20px 24px; background: #FFFFFF; border-left: 5px solid #D94F3D; border-radius: 0 12px 12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+/* ── ACCORDION ── */
+.accordion-item {
+background: #FFFFFF;
+border-left: 5px solid #D94F3D;
+border-radius: 0 12px 12px 0;
+box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+margin-bottom: 10px;
+overflow: hidden;
+}
+.accordion-header {
+display: flex;
+align-items: flex-start;
+gap: 14px;
+padding: 20px 24px;
+cursor: pointer;
+width: 100%;
+background: none;
+border: none;
+text-align: left;
+}
+.accordion-header:hover { background: #f9f9f9; }
+.accordion-icon { font-size: 20px; min-width: 26px; padding-top: 2px; flex-shrink: 0; }
+.accordion-header-text { flex: 1; }
+.accordion-title { font-size: 15px; font-weight: 700; color: #1C1C1C; display: block; margin-bottom: 4px; }
+.accordion-teaser { font-size: 13px; color: #666; line-height: 1.5; display: block; }
+.accordion-chevron {
+font-size: 12px;
+color: #D94F3D;
+flex-shrink: 0;
+margin-top: 4px;
+transition: transform 0.25s ease;
+}
+.accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+.accordion-body {
+display: none;
+padding: 0 24px 20px 64px;
+font-size: 14px;
+color: #3D3D3D;
+line-height: 1.65;
+border-top: 1px solid #C8DDE8;
+}
+.accordion-item.open .accordion-body { display: block; }
+.accordion-body p { margin-top: 14px; }
+.accordion-body ul { margin-top: 10px; padding-left: 20px; line-height: 1.8; }
 .demand-icon { font-size: 22px; min-width: 28px; padding-top: 1px; }
 .demand-text > strong { display: block; font-size: 15px; font-weight: 700; margin-bottom: 5px; color: #1C1C1C; }
 .demand-text p strong { display: inline; font-size: inherit; }
@@ -767,6 +812,10 @@ const btn = document.querySelector('.share-btn.copy');
 btn.textContent = 'Copied!';
 setTimeout(() => btn.textContent = 'Copy Link', 2000);
 });
+}
+
+function toggleAccordion(item) {
+item.classList.toggle('open');
 }
 
 function openInvolveDrawer() {
