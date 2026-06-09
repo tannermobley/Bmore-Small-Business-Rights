@@ -73,7 +73,7 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; o
 
 /* ── COUNTER BAR ── */
 .counter-bar { background: #A8D4EC; border-bottom: 3px solid #C8DDE8; padding: 20px 40px; }
-.counter-inner { max-width: 760px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.counter-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .counter-text { font-size: 15px; color: #3D3D3D; font-weight: 500; }
 .counter-text strong { font-family: 'Archivo Black', sans-serif; font-size: 28px; color: #D94F3D; letter-spacing: 0.04em; }
 .progress-wrap { flex: 1; min-width: 160px; max-width: 320px; height: 10px; background: #C8E6F5; overflow: hidden; border-radius: 99px; border: 2px solid #C8DDE8; }
@@ -84,13 +84,13 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; o
 
 /* ── STATS BAR ── */
 .stats-bar { background: #D94F3D; padding: 36px 40px; }
-.stats-inner { max-width: 760px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px; }
+.stats-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px; }
 .stat { color: #FFFFFF; }
 .stat-number { font-family: 'Archivo Black', sans-serif; font-size: 60px; line-height: 1; color: #FFFFFF; margin-bottom: 6px; text-shadow: 0 2px 12px rgba(0,0,0,0.2); }
 .stat-sentence { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.88); line-height: 1.5; }
 
 /* ── CONTENT ── */
-.content { max-width: 760px; margin: 0 auto; padding: 64px 40px; color: #1C1C1C; }
+.content { max-width: 960px; margin: 0 auto; padding: 64px 40px; color: #1C1C1C; }
 .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #666; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
 .section-label::before { content: ''; display: block; width: 28px; height: 2px; background: #D94F3D; flex-shrink: 0; }
 .intro-text { font-size: 19px; font-weight: 400; line-height: 1.75; color: #1C1C1C; margin-bottom: 52px; padding-bottom: 52px; border-bottom: 2px solid #C8DDE8; }
@@ -133,6 +133,8 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; o
 
 /* ── DEMANDS ── */
 .demands { margin-bottom: 52px; padding-bottom: 52px; border-bottom: 2px solid #C8DDE8; }
+.demands-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 760px) { .demands-grid { grid-template-columns: 1fr; } }
 .demand-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 14px; padding: 20px 24px; background: #FFFFFF; border-left: 5px solid #D94F3D; border-radius: 0 12px 12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 .demand-icon { font-size: 22px; min-width: 28px; padding-top: 1px; }
 .demand-text > strong { display: block; font-size: 15px; font-weight: 700; margin-bottom: 5px; color: #1C1C1C; }
@@ -212,28 +214,95 @@ footer { background: #A8D4EC; border-top: 3px solid #C8DDE8; padding: 28px 40px;
 footer { padding: 20px 24px; }
 }
 
-/* ── SIGN DRAWER ── */
-.sign-fab {
+/* ── INVOLVE DRAWER ── */
+.involve-drawer {
 position: fixed;
-bottom: 32px;
-right: 32px;
-background: #D94F3D;
-color: #FFFFFF;
-border: none;
-padding: 16px 28px;
-font-family: 'Archivo Black', sans-serif;
-font-size: 18px;
-letter-spacing: 0.08em;
-cursor: pointer;
-border-radius: 50px;
-box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-z-index: 900;
-transition: background 0.2s, transform 0.2s;
+top: 0;
+right: -100vw;
+width: 520px;
+max-width: 100vw;
+height: 100%;
+background: #FFFFFF;
+z-index: 1001;
+transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+box-shadow: -4px 0 32px rgba(0,0,0,0.15);
+display: flex;
+flex-direction: column;
+}
+.involve-drawer.open { right: 0; }
+.involve-drawer-header {
+background: #1C1C1C;
+padding: 20px 24px;
 display: flex;
 align-items: center;
-gap: 8px;
+justify-content: space-between;
+flex-shrink: 0;
 }
-.sign-fab:hover { background: #B83D2D; transform: translateY(-2px); }
+.involve-drawer-header h3 {
+font-family: 'Archivo Black', sans-serif;
+font-size: 20px;
+color: #FFFFFF;
+margin: 0;
+}
+.involve-drawer-close {
+background: none;
+border: none;
+font-size: 22px;
+cursor: pointer;
+color: #FFFFFF;
+padding: 4px 8px;
+line-height: 1;
+}
+.involve-drawer iframe {
+flex: 1;
+width: 100%;
+border: none;
+}
+
+/* ── SIGN DRAWER ── */
+.action-bar {
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+display: flex;
+z-index: 900;
+box-shadow: 0 -2px 16px rgba(0,0,0,0.12);
+}
+.action-bar-btn {
+flex: 1;
+padding: 14px 8px;
+font-family: 'Archivo Black', sans-serif;
+font-size: 14px;
+letter-spacing: 0.04em;
+cursor: pointer;
+border: none;
+text-align: center;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 6px;
+white-space: nowrap;
+transition: opacity 0.2s;
+}
+.action-bar-btn:hover { opacity: 0.88; }
+.action-bar-btn.primary { background: #D94F3D; color: #FFFFFF; }
+.action-bar-btn.secondary { background: #1C1C1C; color: #FFFFFF; }
+
+@media (min-width: 761px) {
+.action-bar {
+max-width: 480px;
+left: 50%;
+right: auto;
+transform: translateX(-50%);
+bottom: 32px;
+border-radius: 50px;
+overflow: hidden;
+box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.action-bar-btn { padding: 16px 28px; font-size: 16px; }
+}
 
 .drawer-overlay {
 display: none;
@@ -431,6 +500,7 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 <div style="font-family:'Archivo Black', sans-serif; font-size:40px; letter-spacing:0.02em; color:white; line-height:1;">What We're Fighting For</div>
 </div>
 <div style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#666; margin-bottom:16px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:28px; height:2px; background:#D94F3D; flex-shrink:0;"></span>Baltimore City Council</div>
+<div class="demands-grid">
 <div class="demand-item">
 <div class="demand-icon">🛡️</div>
 <div class="demand-text">
@@ -480,6 +550,7 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 <div class="demand-text">
 <strong>Language Accessible Lease Agreements</strong>
 <p><strong>No one should have to sign a contract they can't fully understand.</strong> Landlords should provide Spanish lease translations for tenants whose primary language is Spanish, using a city-provided template. Baltimore is authorized to expand to additional languages based on community need.</p>
+</div>
 </div>
 </div>
 <div style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#666; margin:28px 0 16px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:28px; height:2px; background:#D94F3D; flex-shrink:0;"></span>Maryland General Assembly</div>
@@ -574,7 +645,7 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 </div>
 <div class="checkbox-row">
 <input type="checkbox" id="updates" checked>
-<label for="updates">Keep me updated on the Small Business Bill of Rights campaign and actions I can take.</label>
+<label for="updates">Keep me updated on campaign milestones and actions I can take. We won't blow up your inbox.</label>
 </div>
 <div class="error-msg" id="error-msg">Please fill in your name, email, and home address to sign.</div>
 <button class="sign-btn" id="sign-btn" onclick="handleSign()">✊ Sign the Petition</button>
@@ -583,6 +654,9 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 <div class="check">✊</div>
 <h3>Thank You, Baltimore.</h3>
 <p>Your signature has been added. We're building a movement — and every name brings us closer to real change for small businesses across this city. Help spread the word by sharing the petition.</p>
+<div style="margin-bottom:20px;">
+<a href="#" onclick="openInvolveDrawer(); return false;" style="display:inline-block; background:#1C1C1C; color:#FFFFFF; padding:14px 32px; font-family:'Archivo Black',sans-serif; font-size:16px; letter-spacing:0.08em; border-radius:8px; text-decoration:none;">🤝 Want to do more? Join the Coalition</a>
+</div>
 <div class="share-btns">
 <a class="share-btn twitter" href="https://twitter.com/intent/tweet?text=Baltimore%20needs%20a%20Small%20Business%20Bill%20of%20Rights.%20I%20just%20signed%20the%20petition%20%E2%80%94%20join%20me.%20https%3A%2F%2Fwww.bmoresmallbusinessrights.com" target="_blank">X / Twitter</a>
 <a class="share-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.bmoresmallbusinessrights.com" target="_blank">Facebook</a>
@@ -658,7 +732,7 @@ const btn = document.getElementById('sidebar-btn');
 if (!fname || !lname || !email || !address) { errorEl.style.display = 'block'; errorEl.textContent = 'Please fill in all required fields.'; return; }
 if (!isValidEmail(email)) { errorEl.style.display = 'block'; errorEl.textContent = 'Please enter a valid email address.'; return; }
 errorEl.style.display = 'none'; btn.disabled = true; btn.textContent = 'Submitting...';
-try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ firstName: fname, lastName: lname, email: email, address: address, story: '', updates: false }) }); } catch (err) {}
+try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ firstName: fname, lastName: lname, email: email, address: address, story: '', updates: document.getElementById('drawer-updates').checked }) }); } catch (err) {}
 document.getElementById('sidebar-form').style.display = 'none';
 document.getElementById('sidebar-success').style.display = 'block';
 setTimeout(fetchCount, 2000);
@@ -686,6 +760,17 @@ const btn = document.querySelector('.share-btn.copy');
 btn.textContent = 'Copied!';
 setTimeout(() => btn.textContent = 'Copy Link', 2000);
 });
+}
+
+function openInvolveDrawer() {
+document.getElementById('involve-drawer').classList.add('open');
+document.getElementById('involve-overlay').classList.add('open');
+document.body.style.overflow = 'hidden';
+}
+function closeInvolveDrawer() {
+document.getElementById('involve-drawer').classList.remove('open');
+document.getElementById('involve-overlay').classList.remove('open');
+document.body.style.overflow = '';
 }
 
 window.addEventListener('load', fetchCount);
@@ -725,7 +810,7 @@ try {
 await fetch(SCRIPT_URL, {
 method: 'POST', mode: 'no-cors',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ firstName: fname, lastName: lname, email: email, address: address, story: '', updates: false })
+body: JSON.stringify({ firstName: fname, lastName: lname, email: email, address: address, story: '', updates: document.getElementById('drawer-updates').checked })
 });
 } catch (err) {}
 document.getElementById('drawer-form-body').style.display = 'none';
@@ -735,8 +820,21 @@ setTimeout(fetchCount, 2000);
 </script>
 
 
+<!-- INVOLVE DRAWER -->
+<div class="drawer-overlay" id="involve-overlay" onclick="closeInvolveDrawer()"></div>
+<div class="involve-drawer" id="involve-drawer">
+<div class="involve-drawer-header">
+<h3>🤝 Get Involved</h3>
+<button class="involve-drawer-close" onclick="closeInvolveDrawer()">✕</button>
+</div>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdlj46KUkhaVp7Km95FsPFrluHy198ebYZF652wZbfHgdO7lg/viewform?embedded=true" loading="lazy">Loading…</iframe>
+</div>
+
 <!-- SIGN FAB -->
-<button class="sign-fab" onclick="openDrawer()">✊ Sign the Petition</button>
+<div class="action-bar">
+<button class="action-bar-btn primary" onclick="openDrawer()">✊ Sign the Petition</button>
+<button class="action-bar-btn secondary" onclick="openInvolveDrawer()">🤝 Get Involved</button>
+</div>
 
 <!-- SIGN DRAWER -->
 <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
@@ -755,12 +853,19 @@ setTimeout(fetchCount, 2000);
 <input type="text" id="d-address" placeholder="123 Main St, Baltimore, MD 21224" autocomplete="street-address">
 <div class="field-note-small">Used only to identify your council district. Never shared publicly.</div>
 <div class="error-msg-small" id="drawer-error"></div>
+<div style="display:flex; align-items:flex-start; gap:10px; margin:14px 0 4px;">
+<input type="checkbox" id="drawer-updates" checked style="width:16px; min-width:16px; height:16px; accent-color:#D94F3D; margin-top:3px;">
+<label for="drawer-updates" style="font-size:12px; color:#666; line-height:1.5; font-weight:400; text-transform:none; letter-spacing:0;">Keep me updated on campaign milestones and actions I can take. We won't blow up your inbox.</label>
+</div>
 <button class="sign-btn-small" id="drawer-btn" onclick="handleDrawerSign()">✊ Sign the Petition</button>
 </div>
 <div class="drawer-success" id="drawer-success">
 <div class="check">✊</div>
 <h4>Thank You, Baltimore.</h4>
 <p>Your signature has been added. Help spread the word.</p>
+<div style="margin-bottom:14px;">
+<button onclick="closeDrawer(); setTimeout(openInvolveDrawer, 300);" style="display:block; width:100%; background:#1C1C1C; color:#FFFFFF; padding:14px 24px; font-family:'Archivo Black',sans-serif; font-size:15px; letter-spacing:0.08em; border-radius:8px; border:none; cursor:pointer; text-align:center;">🤝 Want to do more? Get Involved</button>
+</div>
 <div class="drawer-share">
 <a class="tw" href="https://twitter.com/intent/tweet?text=Baltimore%20needs%20a%20Small%20Business%20Bill%20of%20Rights.%20I%20just%20signed%20%E2%80%94%20join%20me.%20https%3A%2F%2Fwww.bmoresmallbusinessrights.com" target="_blank">X / Twitter</a>
 <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.bmoresmallbusinessrights.com" target="_blank">Facebook</a>
