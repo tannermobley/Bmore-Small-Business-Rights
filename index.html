@@ -427,9 +427,48 @@ line-height: 1;
 .hero-sub { text-align: left; }
 .hero h1 { font-size: clamp(26px, 8vw, 40px); }
 }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle {
+position: fixed;
+top: 16px;
+left: 16px;
+z-index: 1000;
+background: #FFFFFF;
+border: 2px solid #C8DDE8;
+border-radius: 50px;
+display: flex;
+overflow: hidden;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.lang-btn {
+padding: 7px 14px;
+font-family: 'Archivo Black', sans-serif;
+font-size: 11px;
+letter-spacing: 0.1em;
+cursor: pointer;
+border: none;
+background: none;
+color: #666;
+transition: all 0.2s;
+}
+.lang-btn.active {
+background: #D94F3D;
+color: #FFFFFF;
+}
+[data-lang="es"] { display: none; }
+body.es [data-lang="en"] { display: none; }
+body.es [data-lang="es"] { display: block; }
+body.es span[data-lang="es"] { display: inline; }
+body.es span[data-lang="en"] { display: none; }
+span[data-lang="es"] { display: none; }
 </style>
 </head>
 <body>
+<div class="lang-toggle">
+<button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+<button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+</div>
 
 <!-- TOP BANNER -->
 <div style="width:100%; overflow:hidden; line-height:0; background:#C8E6F5;">
@@ -440,11 +479,11 @@ line-height: 1;
 <section class="hero">
 <div class="hero-inner">
 <div class="hero-left">
-<h1><span style="font-size:0.5em; display:block; color:#1C1C1C; letter-spacing:0.05em; margin-bottom:4px;">It's Time for a Baltimore</span><span>Small Business <span style="white-space:nowrap;">Bill of Rights</span></span></h1>
-<p class="hero-sub">The dive bars, the record shops, the neighborhood spots that give Baltimore its charm — they're being pushed out. Some landlords can refuse to renew leases, raise rents with no required notice, or leave storefronts dark for years with no consequence — while our neighborhoods hollow out. It's completely legal. And it ends when enough of us say so.</p>
+<h1><span style="font-size:0.5em; display:block; color:#1C1C1C; letter-spacing:0.05em; margin-bottom:4px;"><span data-lang="en">It's Time for a Baltimore</span><span data-lang="es">Es el Momento para un Baltimore</span></span><span><span data-lang="en">Small Business <span style="white-space:nowrap;">Bill of Rights</span></span><span data-lang="es">Small Business <span style="white-space:nowrap;">Bill of Rights</span></span></span></h1>
+<p class="hero-sub"><span data-lang="en">The dive bars, the record shops, the neighborhood spots that give Baltimore its charm — they're being pushed out. Some landlords can refuse to renew leases, raise rents with no required notice, or leave storefronts dark for years with no consequence — while our neighborhoods hollow out. It's completely legal. And it ends when enough of us say so.</span><span data-lang="es">Los bares, las tiendas de discos, los lugares del barrio que le dan su encanto a Baltimore están siendo desplazados. Algunos propietarios pueden negarse a renovar contratos, subir la renta sin previo aviso, o dejar locales vacíos por años sin consecuencias — mientras nuestros vecindarios se vacían. Es completamente legal. Y termina cuando suficientes personas digamos que ya basta.</span></p>
 <div style="display:flex; align-items:center; gap:10px; margin-top:4px; justify-content:center;">
 <img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/favicon.png" alt="B'More Small Biz Rights Coalition logo" style="width:28px; height:28px; object-fit:contain; border-radius:6px;">
-<span style="font-family:'Archivo Black', sans-serif; font-size:10px; color:#666; letter-spacing:0.18em; text-transform:uppercase;">An initiative of the B'More Small Biz Rights Coalition</span>
+<span style="font-family:'Archivo Black', sans-serif; font-size:10px; color:#666; letter-spacing:0.18em; text-transform:uppercase;"><span data-lang="en">An initiative of the B'More Small Biz Rights Coalition</span><span data-lang="es">Una iniciativa de la B'More Small Biz Rights Coalition</span></span>
 </div>
 </div>
 
@@ -455,11 +494,11 @@ line-height: 1;
 <div class="counter-bar">
 <div class="counter-inner">
 <div class="counter-text">
-<strong id="sig-count">—</strong> Baltimoreans have signed
+<strong id="sig-count">—</strong> <span data-lang="en">Baltimoreans have signed</span><span data-lang="es">Baltimorenses han firmado</span>
 &nbsp;&nbsp;<span class="live-badge"><span class="live-dot"></span> Live</span>
 </div>
 <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
-<div class="counter-text">Goal: <strong>500</strong></div>
+<div class="counter-text"><span data-lang="en">Goal: <strong>500</strong></span><span data-lang="es">Meta: <strong>500</strong></span></div>
 </div>
 </div>
 
@@ -468,19 +507,19 @@ line-height: 1;
 <div class="stats-inner">
 <div class="stat">
 <div class="stat-number">$0</div>
-<div class="stat-sentence">That's how much legal protection Baltimore commercial tenants currently have.</div>
+<div class="stat-sentence"><span data-lang="en">That's how much legal protection Baltimore commercial tenants currently have.</span><span data-lang="es">Así de poca protección legal tienen actualmente los inquilinos comerciales de Baltimore.</span></div>
 </div>
 <div class="stat">
 <div class="stat-number">22%</div>
-<div class="stat-sentence"><a href="https://www.commercialcafe.com/office-market-trends/us/md/baltimore-city/" target="_blank" style="color:rgba(255,255,255,0.88); text-decoration:underline;">Of Baltimore City storefronts sit vacant — and it's been getting worse for 5 straight quarters.</a></div>
+<div class="stat-sentence"><a href="https://www.commercialcafe.com/office-market-trends/us/md/baltimore-city/" target="_blank" style="color:rgba(255,255,255,0.88); text-decoration:underline;"><span data-lang="en">Of Baltimore City storefronts sit vacant — and it's been getting worse for 5 straight quarters.</span><span data-lang="es">De los locales comerciales de Baltimore City están vacíos — y ha ido empeorando durante 5 trimestres consecutivos.</span></a></div>
 </div>
 <div class="stat">
 <div class="stat-number">3×</div>
-<div class="stat-sentence"><a href="https://reclaimdemocracy.org/local-business-multiplier-effect/" target="_blank" style="color:rgba(255,255,255,0.88); text-decoration:underline;">Every dollar spent at a local Baltimore business generates 3× more economic impact than a chain store.</a></div>
+<div class="stat-sentence"><a href="https://reclaimdemocracy.org/local-business-multiplier-effect/" target="_blank" style="color:rgba(255,255,255,0.88); text-decoration:underline;"><span data-lang="en">Every dollar spent at a local Baltimore business generates 3× more economic impact than a chain store.</span><span data-lang="es">Cada dólar gastado en un negocio local de Baltimore genera 3 veces más impacto económico que en una cadena.</span></a></div>
 </div>
 <div class="stat">
 <div class="stat-number">93%</div>
-<div class="stat-sentence"><a href="https://www.nyc.gov/mayors-office/news/2026/04/mayor-mamdani--governor-hochul-announce-state-s-first-pied-a-ter" target="_blank" style="color:rgba(255,255,255,0.88); text-decoration:underline;">Of New Yorkers support a new tax on absentee luxury property owners — proof that taxing those who profit from cities without giving back is a winning idea.</a></div>
+<div class="stat-sentence"><a href="https://www.nyc.gov/mayors-office/news/2026/04/mayor-mamdani--governor-hochul-announce-state-s-first-pied-a-ter" target="_blank" style="color:rgba(255,255,255,0.88); text-decoration:underline;"><span data-lang="en">Of New Yorkers support a new tax on absentee luxury property owners — proof that taxing those who profit from cities without giving back is a winning idea.</span><span data-lang="es">De los neoyorquinos apoyan un nuevo impuesto a propietarios de lujo ausentes — prueba de que gravar a quienes se benefician de las ciudades sin devolver nada es una idea ganadora.</span></a></div>
 </div>
 </div>
 </div>
@@ -489,17 +528,18 @@ line-height: 1;
 
 <div style="display:flex; align-items:center; gap:12px; margin-bottom:28px; padding:16px 20px; background:#FFFFFF; border-radius:12px; border-left:5px solid #E8A838; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
 <div style="font-size:28px;">🏪</div>
-<div style="font-size:14px; color:#3D3D3D; line-height:1.5;"><strong style="color:#1C1C1C;">Every $100 spent locally keeps $48 in Baltimore.</strong> Spend it at a chain? Less than $14 stays here.</div>
+<div style="font-size:14px; color:#3D3D3D; line-height:1.5;"><strong style="color:#1C1C1C;"><span data-lang="en">Every $100 spent locally keeps $48 in Baltimore.</span><span data-lang="es">Cada $100 gastado localmente mantiene $48 en Baltimore.</span></strong> <span data-lang="en">Spend it at a chain? Less than $14 stays here.</span><span data-lang="es">¿Gastarlo en una cadena? Menos de $14 se queda aquí.</span></div>
 </div>
 
 <p class="intro-text">
-Baltimore's small businesses don't just create jobs — <strong>every $100 spent at a local Baltimore business keeps $48 circulating in our local economy.</strong> At a national chain? Less than $14 stays here. Independent businesses are the tax base, the community anchors, and the soul of neighborhoods across this city — from Fells Point to Hampden, Federal Hill to Waverly. And right now, they have <strong>almost no legal protection</strong> against a landlord who decides to push them out. There are many reasons small businesses struggle and storefronts go dark. But the absence of basic legal protections for commercial tenants is a massive piece of the puzzle — and it's one Baltimore City Council can actually fix.
+<span data-lang="en">Baltimore's small businesses don't just create jobs — <strong>every $100 spent at a local Baltimore business keeps $48 circulating in our local economy.</strong> At a national chain? Less than $14 stays here. Independent businesses are the tax base, the community anchors, and the soul of neighborhoods across this city — from Fells Point to Hampden, Federal Hill to Waverly. And right now, they have <strong>almost no legal protection</strong> against a landlord who decides to push them out. There are many reasons small businesses struggle and storefronts go dark. But the absence of basic legal protections for commercial tenants is a massive piece of the puzzle — and it's one Baltimore City Council can actually fix.</span>
+<span data-lang="es">Los pequeños negocios de Baltimore no solo crean empleos — <strong>cada $100 gastado en un negocio local de Baltimore mantiene $48 circulando en nuestra economía local.</strong> ¿En una cadena nacional? Menos de $14 se queda aquí. Los negocios independientes son la base tributaria, los pilares comunitarios y el alma de los vecindarios de esta ciudad — desde Fells Point hasta Hampden, Federal Hill hasta Waverly. Y ahora mismo, tienen <strong>casi ninguna protección legal</strong> contra un propietario que decide echarlos. Hay muchas razones por las que los pequeños negocios luchan y los locales quedan vacíos. Pero la ausencia de protecciones legales básicas para los inquilinos comerciales es una pieza fundamental del problema — y es una que el Concejo Municipal de Baltimore puede realmente solucionar.</span>
 </p>
 
 
 
 <div class="data-strip">
-<div class="data-strip-label">The math doesn't lie</div>
+<div class="data-strip-label"><span data-lang="en">The math doesn't lie</span><span data-lang="es">Los números no mienten</span></div>
 <div class="data-grid">
 <div class="data-item">
 <div class="data-big"></div>
@@ -517,111 +557,147 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 </div>
 
 <div class="problems">
-<div class="section-label">What's happening on our streets</div>
-<h2>The Rules Are Rigged Against Us</h2>
+<div class="section-label"><span data-lang="en">What's happening on our streets</span><span data-lang="es">Lo que está pasando en nuestras calles</span></div>
+<h2><span data-lang="en">The Rules Are Rigged Against Us</span><span data-lang="es">Las Reglas Están en Nuestra Contra</span></h2>
 <div class="problem-item">
 <div class="problem-number">01</div>
 <div class="problem-text">
-<strong>Businesses are being pushed out with no recourse</strong>
-<p>Right now in Fells Point, beloved businesses are being pushed out by landlords while owners have zero meaningful legal protection. Small business owners pour tens of thousands of dollars into buildouts, equipment, and staff and can be pushed out on a whim. In Baltimore, that investment simply disappears.</p>
+<strong><span data-lang="en">Businesses are being pushed out with no recourse</span><span data-lang="es">Los negocios están siendo desplazados sin recursos legales</span></strong>
+<p><span data-lang="en">Right now in Fells Point, beloved businesses are being pushed out by landlords while owners have zero meaningful legal protection. Small business owners pour tens of thousands of dollars into buildouts, equipment, and staff and can be pushed out on a whim. In Baltimore, that investment simply disappears.</span><span data-lang="es">Ahora mismo en Fells Point, negocios queridos están siendo desplazados por propietarios mientras que los dueños no tienen ninguna protección legal significativa. Los dueños de pequeños negocios invierten decenas de miles de dólares en mejoras, equipo y personal, y pueden ser desalojados sin motivo. En Baltimore, esa inversión simplemente desaparece.</span></p>
 </div>
 </div>
 <div class="problem-item">
 <div class="problem-number">02</div>
 <div class="problem-text">
-<strong>Empty storefronts are more profitable than thriving ones</strong>
+<strong><span data-lang="en">Empty storefronts are more profitable than thriving ones</span><span data-lang="es">Los locales vacíos son más rentables que los prósperos</span></strong>
 <p>Drive down Fleet Street in Fells Point, W. 36th Street in Hampden, or Greenmount Avenue in Waverly. Count the vacant storefronts — many have been dark for years. When residential rent upstairs already covers the mortgage, leaving commercial space empty costs landlords almost nothing while avoiding the obligations that come with a tenant. <a href="https://blockclubchicago.org/2021/10/04/some-landlords-keep-their-storefronts-empty-for-years-and-get-tax-breaks-for-it-business-leaders-want-to-curb-that/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Add in tax write-offs for vacancy losses and the incentive to sit on empty storefronts becomes clear.</a> A broken incentive structure is hollowing out our neighborhoods block by block.</p>
 </div>
 </div>
 <div class="problem-item">
 <div class="problem-number">03</div>
 <div class="problem-text">
-<strong>Absentee owners treat Baltimore like a portfolio, not a home</strong>
-<p>Many of Baltimore's commercial properties are owned by people who don't live here, don't shop here, and have no stake in this community. They prioritize tax write-offs and speculative returns over the businesses and neighbors who actually make Baltimore worth living in. When our city suffers, they don't feel it.</p>
+<strong><span data-lang="en">Absentee owners treat Baltimore like a portfolio, not a home</span><span data-lang="es">Los propietarios ausentes tratan a Baltimore como una cartera de inversión, no como un hogar</span></strong>
+<p><span data-lang="en">Many of Baltimore's commercial properties are owned by people who don't live here, don't shop here, and have no stake in this community. They prioritize tax write-offs and speculative returns over the businesses and neighbors who actually make Baltimore worth living in. When our city suffers, they don't feel it.</span><span data-lang="es">Muchas propiedades comerciales de Baltimore son propiedad de personas que no viven aquí, no compran aquí y no tienen ningún interés en esta comunidad. Priorizan las deducciones fiscales y las ganancias especulativas sobre los negocios y vecinos que realmente hacen que Baltimore valga la pena. Cuando nuestra ciudad sufre, ellos no lo sienten.</span></p>
 </div>
 </div>
 </div>
 
 <div class="callout">
-<p>"There is more money to be made keeping a Baltimore storefront <strong>dark</strong> than renting it to a small business. That is a broken system, and it is hollowing out our neighborhoods block by block."</p>
-<div style="margin-top:20px; font-size:12px; color:rgba(255,255,255,0.5); font-style:normal; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; position:relative; z-index:1;">— Anonymous Fells Point business owner</div>
+<p><span data-lang="en">"There is more money to be made keeping a Baltimore storefront <strong>dark</strong> than renting it to a small business. That is a broken system, and it is hollowing out our neighborhoods block by block."</span><span data-lang="es">"Hay más dinero que ganar manteniendo un local de Baltimore <strong>vacío</strong> que rentándolo a un pequeño negocio. Ese es un sistema roto, y está vaciando nuestros vecindarios bloque por bloque."</span></p>
+<div style="margin-top:20px; font-size:12px; color:rgba(255,255,255,0.5); font-style:normal; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; position:relative; z-index:1;"><span data-lang="en">— Anonymous Fells Point business owner</span><span data-lang="es">— Dueño anónimo de negocio en Fells Point</span></div>
 </div>
 
 <div class="demands">
 <div style="background:#1C1C1C; margin:0 -40px 28px; padding:28px 40px; border-radius:12px;">
-<div style="font-family:'Archivo Black', sans-serif; font-size:40px; letter-spacing:0.02em; color:white; line-height:1;">What We're Fighting For</div>
+<div style="font-family:'Archivo Black', sans-serif; font-size:40px; letter-spacing:0.02em; color:white; line-height:1;"><span data-lang="en">What We're Fighting For</span><span data-lang="es">Por Qué Estamos Luchando</span></div>
 </div>
-<div style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#666; margin-bottom:16px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:28px; height:2px; background:#D94F3D; flex-shrink:0;"></span>Baltimore City Council</div>
-<div class="demands-grid">
-<div class="demand-item">
-<div class="demand-icon">🛡️</div>
-<div class="demand-text">
-<strong>Anti-Harassment &amp; Lease Protections</strong>
-<p>NYC passed this law because landlords were shutting off heat in winter and burying tenants in bogus court filings to make them give up and leave. <strong>None of that is illegal in Baltimore.</strong> We're calling for <a href="https://www.anhd.org/press-release/commercial-tenants-have-new-protection-against-landlord-harassment/" target="_blank" style="color:#3D3D3D; text-decoration:underline;"><strong>civil penalties up to $50,000</strong></a> for bad-faith tactics designed to push tenants out.</p>
+<div style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#666; margin-bottom:16px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:28px; height:2px; background:#D94F3D; flex-shrink:0;"></span><span data-lang="en">Baltimore City Council</span><span data-lang="es">Concejo Municipal de Baltimore</span></div>
+<div class="accordion-demands">
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<button class="accordion-header">
+<span class="accordion-icon">🛡️</span>
+<span class="accordion-header-text">
+<span class="accordion-title"><span data-lang="en">Anti-Harassment &amp; Lease Protections</span><span data-lang="es">Protecciones contra el Acoso y del Contrato</span></span>
+<span class="accordion-teaser"><span data-lang="en">Bad-faith landlord tactics are legal in Baltimore. We want $50,000 penalties for them.</span><span data-lang="es">Las tácticas de mala fe de los propietarios son legales en Baltimore. Queremos multas de $50,000 por ellas.</span></span>
+</span>
+<span class="accordion-chevron">▼</span>
+</button>
+<div class="accordion-body">
+<p><span data-lang="en">NYC passed this law because landlords were shutting off heat in winter and burying tenants in bogus court filings to make them give up and leave. <strong>None of that is illegal in Baltimore.</strong> We're calling for <a href="https://www.anhd.org/press-release/commercial-tenants-have-new-protection-against-landlord-harassment/" target="_blank" style="color:#3D3D3D; text-decoration:underline;"><strong>civil penalties up to $50,000</strong></a> for bad-faith tactics designed to push tenants out.</span><span data-lang="es">Nueva York aprobó esta ley porque los propietarios cortaban la calefacción en invierno y enterraban a los inquilinos en demandas judiciales falsas para obligarlos a irse. <strong>Nada de eso es ilegal en Baltimore.</strong> Exigimos <a href="https://www.anhd.org/press-release/commercial-tenants-have-new-protection-against-landlord-harassment/" target="_blank" style="color:#3D3D3D; text-decoration:underline;"><strong>multas civiles de hasta $50,000</strong></a> por tácticas de mala fe diseñadas para desalojar inquilinos.</span></p>
 </div>
 </div>
-<div class="demand-item">
-<div class="demand-icon">📋</div>
-<div class="demand-text">
-<strong>Extended Notice Requirements</strong>
-<p>Require landlords to give small businesses at least <strong>90 days notice</strong> before any rent increase over 8% or lease termination, so they have a real chance to plan and stay.</p>
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<button class="accordion-header">
+<span class="accordion-icon">📋</span>
+<span class="accordion-header-text">
+<span class="accordion-title"><span data-lang="en">Extended Notice Requirements</span><span data-lang="es">Requisitos de Aviso Extendido</span></span>
+<span class="accordion-teaser"><span data-lang="en">Businesses get blindsided by rent hikes and lease terminations. We want 90 days notice.</span><span data-lang="es">Los negocios son tomados por sorpresa por aumentos de renta y terminaciones de contrato. Queremos 90 días de aviso.</span></span>
+</span>
+<span class="accordion-chevron">▼</span>
+</button>
+<div class="accordion-body">
+<p><span data-lang="en">Require landlords to give small businesses at least <strong>90 days notice</strong> before any rent increase over 8% or lease termination, so they have a real chance to plan and stay.</span><span data-lang="es">Requerir que los propietarios den a los pequeños negocios al menos <strong>90 días de aviso</strong> antes de cualquier aumento de renta mayor al 8% o terminación de contrato, para que tengan una oportunidad real de planificar y quedarse.</span></p>
 </div>
 </div>
-<div class="demand-item">
-<div class="demand-icon">🏚️</div>
-<div class="demand-text">
-<strong>Vacant Storefront Accountability</strong>
-<p>Baltimore City just passed a <a href="https://www.cbsnews.com/baltimore/news/baltimore-city-council-approves-tax-hike-vacant-homes/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">vacancy tax on abandoned residential properties</a>. We're calling on City Council to extend that same logic to commercial storefronts. Here's what we're demanding:</p>
-<ul style="margin-top:10px; padding-left:20px; font-size:14px; color:#3D3D3D; line-height:1.8;">
-<li><strong>A tax rate that makes vacancy unprofitable</strong> — applied to storefronts left vacant for more than 6 months, escalating each year</li>
-<li><strong>A Baltimore Small Business Assistance Fund</strong> — vacancy tax revenue goes into grants for local businesses covering buildouts, equipment, and first-year costs, prioritizing vacant corridors and underserved neighborhoods</li>
-<li><strong>A publicly accessible vacant storefront database</strong> — so residents and policymakers can see where vacancies are concentrated, hold landlords accountable, and make it easier for entrepreneurs to find a space</li>
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<button class="accordion-header">
+<span class="accordion-icon">🏚️</span>
+<span class="accordion-header-text">
+<span class="accordion-title"><span data-lang="en">Vacant Storefront Accountability</span><span data-lang="es">Responsabilidad por Locales Vacíos</span></span>
+<span class="accordion-teaser"><span data-lang="en">Keeping storefronts dark is profitable. We want a tax that makes vacancy unprofitable.</span><span data-lang="es">Mantener los locales vacíos es rentable. Queremos un impuesto que haga la vacancia no rentable.</span></span>
+</span>
+<span class="accordion-chevron">▼</span>
+</button>
+<div class="accordion-body">
+<p><span data-lang="en">Baltimore City just passed a <a href="https://www.cbsnews.com/baltimore/news/baltimore-city-council-approves-tax-hike-vacant-homes/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">vacancy tax on abandoned residential properties</a>. We're calling on City Council to extend that same logic to commercial storefronts. Here's what we're demanding:</span><span data-lang="es">Baltimore City acaba de aprobar un <a href="https://www.cbsnews.com/baltimore/news/baltimore-city-council-approves-tax-hike-vacant-homes/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">impuesto a propiedades residenciales abandonadas</a>. Pedimos al Concejo Municipal que aplique esa misma lógica a los locales comerciales. Esto es lo que exigimos:</span></p>
+<ul>
+<li><strong><span data-lang="en">A tax rate that makes vacancy unprofitable</span><span data-lang="es">Una tasa impositiva que haga la vacancia no rentable</span></strong> — <span data-lang="en">applied to storefronts left vacant for more than 6 months, escalating each year</span><span data-lang="es">aplicada a locales vacíos por más de 6 meses, escalando cada año</span></li>
+<li><strong><span data-lang="en">A Baltimore Small Business Assistance Fund</span><span data-lang="es">Un Fondo de Asistencia para Pequeños Negocios de Baltimore</span></strong> — <span data-lang="en">vacancy tax revenue goes into grants for local businesses covering buildouts, equipment, and first-year costs, prioritizing vacant corridors and underserved neighborhoods</span><span data-lang="es">los ingresos del impuesto se destinan a subvenciones para negocios locales que cubran mejoras, equipo y costos del primer año, priorizando corredores vacíos y vecindarios desatendidos</span></li>
+<li><strong><span data-lang="en">A publicly accessible vacant storefront database</span><span data-lang="es">Una base de datos pública de locales vacíos</span></strong> — <span data-lang="en">so residents and policymakers can see where vacancies are concentrated, hold landlords accountable, and make it easier for entrepreneurs to find a space</span><span data-lang="es">para que residentes y legisladores puedan ver dónde se concentran las vacancias, responsabilizar a los propietarios y facilitar que los emprendedores encuentren un espacio</span></li>
 </ul>
 </div>
 </div>
-<div class="demand-item">
-<div class="demand-icon">🔧</div>
-<div class="demand-text">
-<strong>Basic Maintenance Standards</strong>
-<p>In Baltimore, a landlord can write a commercial lease that sticks a small business with a $15,000 AC repair bill or a burst water main that shuts you down for weeks. <strong>There's no floor.</strong> <a href="https://www.peoples-law.org/warranty-habitability-rental-housing" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Residential tenants have baseline protections that can't be signed away</a> — any commercial lease should require landlords to maintain the systems that keep a space legally operable. <strong>Heating, cooling, plumbing, electrical.</strong> Not cosmetics. The basics.</p>
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<button class="accordion-header">
+<span class="accordion-icon">🔧</span>
+<span class="accordion-header-text">
+<span class="accordion-title"><span data-lang="en">Basic Maintenance Standards</span><span data-lang="es">Estándares Básicos de Mantenimiento</span></span>
+<span class="accordion-teaser"><span data-lang="en">Landlords can pass major repair bills to tenants. We want a floor on what they're responsible for.</span><span data-lang="es">Los propietarios pueden traspasar facturas de reparaciones a los inquilinos. Queremos un límite a su responsabilidad.</span></span>
+</span>
+<span class="accordion-chevron">▼</span>
+</button>
+<div class="accordion-body">
+<p><span data-lang="en">In Baltimore, a landlord can write a commercial lease that sticks a small business with a $15,000 AC repair bill or a burst water main that shuts you down for weeks. <strong>There's no floor.</strong> <a href="https://www.peoples-law.org/warranty-habitability-rental-housing" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Residential tenants have baseline protections that can't be signed away</a> — any commercial lease should require landlords to maintain the systems that keep a space legally operable. <strong>Heating, cooling, plumbing, electrical.</strong> Not cosmetics. The basics.</span><span data-lang="es">En Baltimore, un propietario puede redactar un contrato comercial que le imponga a un pequeño negocio una factura de reparación de aire acondicionado de $15,000 o una tubería rota que lo cierre por semanas. <strong>No hay un piso mínimo.</strong> <a href="https://www.peoples-law.org/warranty-habitability-rental-housing" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Los inquilinos residenciales tienen protecciones básicas que no se pueden renunciar</a> — cualquier contrato comercial debería exigir a los propietarios mantener los sistemas que mantienen un espacio legalmente operable. <strong>Calefacción, refrigeración, plomería, electricidad.</strong> No estética. Lo básico.</span></p>
 </div>
 </div>
-<div class="demand-item">
-<div class="demand-icon">🏗️</div>
-<div class="demand-text">
-<strong>Developer-Funded Relocation Assistance and Right to Return</strong>
-<p>When a building sale or redevelopment project forces a small business to vacate, the developer is responsible — <strong>not the city, and not the tenant.</strong> The people who profit from redevelopment shouldn't be doing it on the backs of the businesses that made those neighborhoods worth investing in. Here's what we're demanding:</p>
-<ul style="margin-top:10px; padding-left:20px; font-size:14px; color:#3D3D3D; line-height:1.8;">
-<li><strong>Direct relocation assistance</strong> — developers must cover moving costs and first-month expenses at a comparable space <strong>within a half mile</strong> of the original location, <a href="https://antidisplacement.org/profile/small-business-impact-opportunity-fund-denver-co/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">a standard used in Denver's relocation assistance program</a></li>
-<li><strong>Right of first return</strong> — when the redeveloped space is reoccupied, the displaced business has the right to return at a comparable market rate</li>
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<button class="accordion-header">
+<span class="accordion-icon">🏗️</span>
+<span class="accordion-header-text">
+<span class="accordion-title"><span data-lang="en">Developer-Funded Relocation Assistance and Right to Return</span><span data-lang="es">Asistencia de Reubicación Financiada por Desarrolladores y Derecho de Retorno</span></span>
+<span class="accordion-teaser"><span data-lang="en">Developers can displace businesses with no obligation. We want them to cover relocation and guarantee return.</span><span data-lang="es">Los desarrolladores pueden desplazar negocios sin ninguna obligación. Queremos que cubran la reubicación y garanticen el retorno.</span></span>
+</span>
+<span class="accordion-chevron">▼</span>
+</button>
+<div class="accordion-body">
+<p><span data-lang="en">When a building sale or redevelopment project forces a small business to vacate, the developer is responsible — <strong>not the city, and not the tenant.</strong> The people who profit from redevelopment shouldn't be doing it on the backs of the businesses that made those neighborhoods worth investing in. Here's what we're demanding:</span><span data-lang="es">Cuando la venta de un edificio o un proyecto de reurbanización obliga a un pequeño negocio a desalojar, el desarrollador es responsable — <strong>no la ciudad, y no el inquilino.</strong> Las personas que se benefician de la reurbanización no deben hacerlo a expensas de los negocios que hicieron que esos vecindarios valieran la pena. Esto es lo que exigimos:</span></p>
+<ul>
+<li><strong><span data-lang="en">Direct relocation assistance</span><span data-lang="es">Asistencia directa de reubicación</span></strong> — <span data-lang="en">developers must cover moving costs and first-month expenses at a comparable space <strong>within a half mile</strong> of the original location, <a href="https://antidisplacement.org/profile/small-business-impact-opportunity-fund-denver-co/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">a standard used in Denver's relocation assistance program</a></span><span data-lang="es">los desarrolladores deben cubrir los costos de mudanza y los gastos del primer mes en un espacio comparable <strong>dentro de media milla</strong> de la ubicación original, <a href="https://antidisplacement.org/profile/small-business-impact-opportunity-fund-denver-co/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">un estándar usado en el programa de asistencia de reubicación de Denver</a></span></li>
+<li><strong><span data-lang="en">Right of first return</span><span data-lang="es">Derecho de primer retorno</span></strong> — <span data-lang="en">when the redeveloped space is reoccupied, the displaced business has the right to return at a comparable market rate</span><span data-lang="es">cuando el espacio reurbanizado sea reocupado, el negocio desplazado tiene el derecho de regresar a una tarifa de mercado comparable</span></li>
 </ul>
 </div>
 </div>
-<div class="demand-item">
-<div class="demand-icon">🌐</div>
-<div class="demand-text">
-<strong>Language Accessible Lease Agreements</strong>
-<p><strong>No one should have to sign a contract they can't fully understand.</strong> Landlords should provide Spanish lease translations for tenants whose primary language is Spanish, using a city-provided template. Baltimore is authorized to expand to additional languages based on community need.</p>
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<button class="accordion-header">
+<span class="accordion-icon">🌐</span>
+<span class="accordion-header-text">
+<span class="accordion-title"><span data-lang="en">Language Accessible Lease Agreements</span><span data-lang="es">Contratos de Arrendamiento Accesibles en Idioma</span></span>
+<span class="accordion-teaser"><span data-lang="en">Tenants are signing contracts they can't read. We want Spanish translations required by law.</span><span data-lang="es">Los inquilinos están firmando contratos que no pueden leer. Queremos que las traducciones al español sean requeridas por ley.</span></span>
+</span>
+<span class="accordion-chevron">▼</span>
+</button>
+<div class="accordion-body">
+<p><span data-lang="en"><strong>No one should have to sign a contract they can't fully understand.</strong> Landlords should provide Spanish lease translations for tenants whose primary language is Spanish, using a city-provided template. Baltimore is authorized to expand to additional languages based on community need.</span><span data-lang="es"><strong>Nadie debería tener que firmar un contrato que no puede entender completamente.</strong> Los propietarios deben proporcionar traducciones al español de los contratos de arrendamiento para inquilinos cuyo idioma principal es el español, usando una plantilla proporcionada por la ciudad. Baltimore está autorizado a ampliar esto a idiomas adicionales según la necesidad de la comunidad.</span></p>
 </div>
 </div>
-</div>
-<div style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#666; margin:28px 0 16px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:28px; height:2px; background:#D94F3D; flex-shrink:0;"></span>Maryland General Assembly</div>
+</div>div>
+<div style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#666; margin:28px 0 16px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:28px; height:2px; background:#D94F3D; flex-shrink:0;"></span><span data-lang="en">Maryland General Assembly</span><span data-lang="es">Asamblea General de Maryland</span></div>
 <div class="demand-item">
 <div class="demand-icon">🏠</div>
 <div class="demand-text">
-<strong>Non-Resident Property Tax Surcharge</strong>
+<strong><span data-lang="en">Non-Resident Property Tax Surcharge</span><span data-lang="es">Recargo Fiscal para Propietarios No Residentes</span></strong>
 <p><strong>Commercial property owners who do not pay Maryland income taxes should pay a higher property tax rate on commercial holdings.</strong> This requires action from the Maryland General Assembly — and we're calling on Baltimore's delegation to lead that fight. If you profit from Maryland communities without contributing to the tax base, you pay your fair share back. This targets the same behavior as an absentee landlord tax but is built around tax status rather than residency — a cleaner legal framework that <a href="https://law.justia.com/codes/new-york/2006/new-york-city-administrative-code-new/adc011-238_11-238.html" target="_blank" style="color:#3D3D3D; text-decoration:underline;">other jurisdictions have used successfully</a>. We welcome investment that activates properties. This targets those who sit on them.</p>
 </div>
 </div>
 </div>
 
 <div class="precedent">
-<div class="section-label">Proven elsewhere</div>
-<h2>This Isn't a New Idea. Baltimore Is Just Behind.</h2>
+<div class="section-label"><span data-lang="en">Proven elsewhere</span><span data-lang="es">Probado en otros lugares</span></div>
+<h2><span data-lang="en">This Isn't a New Idea. Baltimore Is Just Behind.</span><span data-lang="es">Esta No Es una Idea Nueva. Baltimore Solo Está Atrasada.</span></h2>
 
 <div class="city-cards">
 <div class="city-card">
-<div class="city-name">🗽 New York City</div>
+<div class="city-name">🗽 <span data-lang="en">New York City</span><span data-lang="es">Ciudad de Nueva York</span></div>
 <p><a href="https://www.anhd.org/press-release/commercial-tenants-have-new-protection-against-landlord-harassment/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Commercial Tenant Anti-Harassment Law</a> bans bad-faith tactics with civil penalties up to <strong>$50,000</strong>, plus free legal aid through the Dept. of Small Business Services.</p>
 </div>
 <div class="city-card">
@@ -629,7 +705,7 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 <p><a href="https://ggwash.org/view/98188/dc-has-been-a-leader-in-residential-tenant-protections-heres-how-it-could-better-protect-small-business-tenants" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Our neighbor 40 miles south</a> requires landlords to provide written notice before filing eviction and bans self-help evictions entirely — protections Baltimore businesses don't have.</p>
 </div>
 <div class="city-card">
-<div class="city-name">🌴 Los Angeles</div>
+<div class="city-name">🌴 Los Ángeles</div>
 <p><a href="https://antidisplacement.org/profile/commercial-tenant-protections-ctp-ordinance-los-angeles-ca/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Made commercial tenant protections <strong>permanent in 2022</strong></a> for businesses with 9 or fewer employees, including full anti-harassment provisions.</p>
 </div>
 </div>
@@ -639,9 +715,9 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 </div>
 
 <div class="supporters">
-<div class="section-label">Standing with Baltimore's small businesses</div>
-<h2>Businesses That Support This</h2>
-<p class="supporters-sub">These Baltimore small businesses stand behind the Small Business Bill of Rights. Is your business in? Get in touch to add your logo here.</p>
+<div class="section-label"><span data-lang="en">Standing with Baltimore's small businesses</span><span data-lang="es">Apoyando a los pequeños negocios de Baltimore</span></div>
+<h2><span data-lang="en">Businesses That Support This</span><span data-lang="es">Negocios que Apoyan Esta Causa</span></h2>
+<p class="supporters-sub"><span data-lang="en">These Baltimore small businesses stand behind the Small Business Bill of Rights. Is your business in? Get in touch to add your logo here.</span><span data-lang="es">Estos pequeños negocios de Baltimore respaldan la Small Business Bill of Rights. ¿Está tu negocio incluido? Contáctanos para añadir tu logo aquí.</span></p>
 <div class="logo-grid">
 <div class="logo-slot"><div class="logo-placeholder-text">Your Business Here</div></div>
 <div class="logo-slot"><div class="logo-placeholder-text">Your Business Here</div></div>
@@ -651,7 +727,7 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 <div class="logo-slot"><div class="logo-placeholder-text">Your Business Here</div></div>
 </div>
 <div class="add-logo-note">
-<strong>Own a Baltimore small business?</strong> Add your name below and we'll reach out to get your logo on this page.
+<strong><span data-lang="en">Own a Baltimore small business?</span><span data-lang="es">¿Tienes un pequeño negocio en Baltimore?</span></strong> <span data-lang="en">Add your name below and we'll reach out to get your logo on this page.</span><span data-lang="es">Añade tu nombre abajo y nos comunicaremos para incluir tu logo en esta página.</span>
 <div style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
 <input type="text" id="biz-name" placeholder="Business name" style="background:#2a2a2a; border:2px solid #444; color:#FFFFFF; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:100%; border-radius:8px; -webkit-appearance:none;">
 <input type="text" id="biz-contact-name" placeholder="Your name" style="background:#2a2a2a; border:2px solid #444; color:#FFFFFF; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; width:100%; border-radius:8px; -webkit-appearance:none;">
@@ -663,49 +739,49 @@ Baltimore's small businesses don't just create jobs — <strong>every $100 spent
 </div>
 
 <div class="petition-form" id="petition-form-section">
-<h2>Add Your Name</h2>
-<p class="form-sub">Adding your name tells Baltimore City Council that real constituents — across every district — are demanding change. The more names we have, the harder this is to ignore.</p>
+<h2><span data-lang="en">Add Your Name</span><span data-lang="es">Añade tu Nombre</span></h2>
+<p class="form-sub"><span data-lang="en">Adding your name tells Baltimore City Council that real constituents — across every district — are demanding change. The more names we have, the harder this is to ignore.</span><span data-lang="es">Añadir tu nombre le dice al Concejo Municipal de Baltimore que ciudadanos reales — en todos los distritos — exigen un cambio. Cuantos más nombres tengamos, más difícil será ignorarlo.</span></p>
 <div id="form-body">
 <div class="form-row">
 <div class="form-group">
-<label for="fname">First Name *</label>
+<label for="fname"><span data-lang="en">First Name *</span><span data-lang="es">Nombre *</span></label>
 <input type="text" id="fname" placeholder="First name" autocomplete="given-name">
 </div>
 <div class="form-group">
-<label for="lname">Last Name *</label>
+<label for="lname"><span data-lang="en">Last Name *</span><span data-lang="es">Apellido *</span></label>
 <input type="text" id="lname" placeholder="Last name" autocomplete="family-name">
 </div>
 </div>
 <div class="form-row">
 <div class="form-group full">
-<label for="email">Email *</label>
+<label for="email"><span data-lang="en">Email *</span><span data-lang="es">Correo electrónico *</span></label>
 <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
 </div>
 </div>
 <div class="form-row">
 <div class="form-group full">
-<label for="address">Home Address *</label>
+<label for="address"><span data-lang="en">Home Address *</span><span data-lang="es">Dirección de casa *</span></label>
 <input type="text" id="address" placeholder="123 Main St, Baltimore, MD 21224" autocomplete="street-address">
-<div class="field-note">Baltimore City has 14 council districts. Your address lets us route your signature to your specific councilmember — so it lands on the right desk, not just City Hall in general. Your address is never shared publicly.</div>
+<div class="field-note"><span data-lang="en">Baltimore City has 14 council districts. Your address lets us route your signature to your specific councilmember — so it lands on the right desk, not just City Hall in general. Your address is never shared publicly.</span><span data-lang="es">Baltimore City tiene 14 distritos del concejo. Tu dirección nos permite enviar tu firma a tu concejal específico — para que llegue al escritorio correcto. Tu dirección nunca se comparte públicamente.</span></div>
 </div>
 </div>
 <div class="form-row">
 <div class="form-group full">
-<label for="comment">Your Story (optional)</label>
+<label for="comment"><span data-lang="en">Your Story (optional)</span><span data-lang="es">Tu historia (opcional)</span></label>
 <textarea id="comment" placeholder="Own a small business? Been affected by a landlord? Your story may be shared with City Council..."></textarea>
 </div>
 </div>
 <div class="checkbox-row">
 <input type="checkbox" id="updates" checked>
-<label for="updates">Keep me updated on campaign milestones and actions I can take. We won't blow up your inbox.</label>
+<label for="updates"><span data-lang="en">Keep me updated on campaign milestones and actions I can take. We won't blow up your inbox.</span><span data-lang="es">Mantenme informado/a sobre los avances de la campaña y las acciones que puedo tomar. No llenaremos tu bandeja de entrada.</span></label>
 </div>
 <div class="error-msg" id="error-msg">Please fill in your name, email, and home address to sign.</div>
-<button class="sign-btn" id="sign-btn" onclick="handleSign()">✊ Sign the Petition</button>
+<button class="sign-btn" id="sign-btn" onclick="handleSign()"><span data-lang="en">✊ Sign the Petition</span><span data-lang="es">✊ Firmar la Petición</span></button>
 </div>
 <div class="success-msg" id="success-msg">
 <div class="check">✊</div>
-<h3>Thank You, Baltimore.</h3>
-<p>Your signature has been added. We're building a movement — and every name brings us closer to real change for small businesses across this city. Help spread the word by sharing the petition.</p>
+<h3><span data-lang="en">Thank You, Baltimore.</span><span data-lang="es">Gracias, Baltimore.</span></h3>
+<p><span data-lang="en">Your signature has been added. We're building a movement — and every name brings us closer to real change for small businesses across this city. Help spread the word by sharing the petition.</span><span data-lang="es">Tu firma ha sido añadida. Estamos construyendo un movimiento — y cada nombre nos acerca más a un cambio real para los pequeños negocios de esta ciudad. Ayuda a correr la voz compartiendo la petición.</span></p>
 <div style="margin-bottom:20px;">
 <a href="#" onclick="openInvolveDrawer(); return false;" style="display:inline-block; background:#1C1C1C; color:#FFFFFF; padding:14px 32px; font-family:'Archivo Black',sans-serif; font-size:16px; letter-spacing:0.08em; border-radius:8px; text-decoration:none;">🤝 Want to do more? Join the Coalition</a>
 </div>
@@ -818,6 +894,10 @@ function toggleAccordion(item) {
 item.classList.toggle('open');
 }
 
+function toggleAccordion(item) {
+item.classList.toggle('open');
+}
+
 function openInvolveDrawer() {
 document.getElementById('involve-drawer').classList.add('open');
 document.getElementById('involve-overlay').classList.add('open');
@@ -873,6 +953,18 @@ document.getElementById('drawer-form-body').style.display = 'none';
 document.getElementById('drawer-success').style.display = 'block';
 setTimeout(fetchCount, 2000);
 }
+
+function setLang(lang) {
+if (lang === 'es') {
+document.body.classList.add('es');
+document.getElementById('btn-es').classList.add('active');
+document.getElementById('btn-en').classList.remove('active');
+} else {
+document.body.classList.remove('es');
+document.getElementById('btn-en').classList.add('active');
+document.getElementById('btn-es').classList.remove('active');
+}
+}
 </script>
 
 
@@ -888,8 +980,8 @@ setTimeout(fetchCount, 2000);
 
 <!-- SIGN FAB -->
 <div class="action-bar">
-<button class="action-bar-btn primary" onclick="openDrawer()">✊ Sign the Petition</button>
-<button class="action-bar-btn secondary" onclick="openInvolveDrawer()">🤝 Get Involved</button>
+<button class="action-bar-btn primary" onclick="openDrawer()"><span data-lang="en">✊ Sign the Petition</span><span data-lang="es">✊ Firmar</span></button>
+<button class="action-bar-btn secondary" onclick="openInvolveDrawer()"><span data-lang="en">🤝 Get Involved</span><span data-lang="es">🤝 Participar</span></button>
 </div>
 
 <!-- SIGN DRAWER -->
@@ -899,26 +991,26 @@ setTimeout(fetchCount, 2000);
 <div id="drawer-form-body">
 <h3>Add Your Name</h3>
 <p class="form-sub-small">Sign the petition. We'll route your signature to your City Council representative.</p>
-<label for="d-fname">First Name *</label>
+<label for="d-fname"><span data-lang="en">First Name *</span><span data-lang="es">Nombre *</span></label>
 <input type="text" id="d-fname" placeholder="First name" autocomplete="given-name">
-<label for="d-lname">Last Name *</label>
+<label for="d-lname"><span data-lang="en">Last Name *</span><span data-lang="es">Apellido *</span></label>
 <input type="text" id="d-lname" placeholder="Last name" autocomplete="family-name">
-<label for="d-email">Email *</label>
+<label for="d-email"><span data-lang="en">Email *</span><span data-lang="es">Correo electrónico *</span></label>
 <input type="email" id="d-email" placeholder="your@email.com" autocomplete="email">
-<label for="d-address">Home Address *</label>
+<label for="d-address"><span data-lang="en">Home Address *</span><span data-lang="es">Dirección de casa *</span></label>
 <input type="text" id="d-address" placeholder="123 Main St, Baltimore, MD 21224" autocomplete="street-address">
-<div class="field-note-small">Used only to identify your council district. Never shared publicly.</div>
+<div class="field-note-small"><span data-lang="en">Used only to identify your council district. Never shared publicly.</span><span data-lang="es">Solo se usa para identificar tu distrito del concejo. Nunca se comparte públicamente.</span></div>
 <div class="error-msg-small" id="drawer-error"></div>
 <div style="display:flex; align-items:flex-start; gap:10px; margin:14px 0 4px;">
 <input type="checkbox" id="drawer-updates" checked style="width:16px; min-width:16px; height:16px; accent-color:#D94F3D; margin-top:3px;">
-<label for="drawer-updates" style="font-size:12px; color:#666; line-height:1.5; font-weight:400; text-transform:none; letter-spacing:0;">Keep me updated on campaign milestones and actions I can take. We won't blow up your inbox.</label>
+<label for="drawer-updates" style="font-size:12px; color:#666; line-height:1.5; font-weight:400; text-transform:none; letter-spacing:0;"><span data-lang="en">Keep me updated on campaign milestones and actions I can take. We won't blow up your inbox.</span><span data-lang="es">Mantenme informado/a sobre los avances de la campaña y las acciones que puedo tomar. No llenaremos tu bandeja de entrada.</span></label>
 </div>
-<button class="sign-btn-small" id="drawer-btn" onclick="handleDrawerSign()">✊ Sign the Petition</button>
+<button class="sign-btn-small" id="drawer-btn" onclick="handleDrawerSign()"><span data-lang="en">✊ Sign the Petition</span><span data-lang="es">✊ Firmar la Petición</span></button>
 </div>
 <div class="drawer-success" id="drawer-success">
 <div class="check">✊</div>
-<h4>Thank You, Baltimore.</h4>
-<p>Your signature has been added. Help spread the word.</p>
+<h4><span data-lang="en">Thank You, Baltimore.</span><span data-lang="es">Gracias, Baltimore.</span></h4>
+<p><span data-lang="en">Your signature has been added. Help spread the word.</span><span data-lang="es">Tu firma ha sido añadida. Ayuda a correr la voz.</span></p>
 <div style="margin-bottom:14px;">
 <button onclick="closeDrawer(); setTimeout(openInvolveDrawer, 300);" style="display:block; width:100%; background:#1C1C1C; color:#FFFFFF; padding:14px 24px; font-family:'Archivo Black',sans-serif; font-size:15px; letter-spacing:0.08em; border-radius:8px; border:none; cursor:pointer; text-align:center;">🤝 Want to do more? Get Involved</button>
 </div>
