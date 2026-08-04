@@ -206,6 +206,16 @@ border-top: 1px solid #C8DDE8;
 .logo-slot { background: #FFFFFF; border: 2px dashed #C8DDE8; height: 90px; display: flex; align-items: center; justify-content: center; border-radius: 10px; }
 .logo-slot.filled { border: 2px solid #C8DDE8; padding: 10px; }
 .logo-slot img { max-width: 100%; max-height: 68px; object-fit: contain; display: block; }
+.logo-carousel { overflow: hidden; position: relative; margin-bottom: 20px; }
+.logo-carousel::before, .logo-carousel::after { content:''; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none; }
+.logo-carousel::before { left:0; background: linear-gradient(90deg, #C8E6F5, transparent); }
+.logo-carousel::after { right:0; background: linear-gradient(270deg, #C8E6F5, transparent); }
+.logo-track { display: flex; gap: 16px; width: max-content; animation: logoScroll 60s linear infinite; }
+.logo-carousel:hover .logo-track { animation-play-state: paused; }
+@keyframes logoScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.logo-track .logo-slot { flex: 0 0 170px; height: 90px; border: 2px solid #C8DDE8; padding: 12px; display: flex; align-items: center; justify-content: center; }
+.logo-track .logo-slot img { max-width: 100%; max-height: 62px; object-fit: contain; display: block; }
+@media (prefers-reduced-motion: reduce) { .logo-track { animation: none; } .logo-carousel { overflow-x: auto; } }
 .logo-placeholder-text { font-size: 11px; font-weight: 600; color: #b0bec5; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 8px; }
 .add-logo-note { background: #1C1C1C; padding: 20px 24px; font-size: 13px; color: #C8C4BC; line-height: 1.6; border-radius: 12px; }
 .add-logo-note strong { color: #E8A838; }
@@ -743,13 +753,29 @@ span[data-lang="es"] { display: none; }
 <p class="supporters-sub"><span data-lang="en">We're Baltimore small business owners and neighbors fighting for the businesses that give this city its character. We're advocating for City Council to pass a Baltimore Small Business Bill of Rights. 
 We’re asking you to join us - or at least learn more. 
 </span><span data-lang="es">Estos pequeños negocios de Baltimore respaldan la Small Business Bill of Rights. ¿Está tu negocio incluido? Contáctanos para añadir tu logo aquí.</span></p>
-<div class="logo-grid">
-<div class="logo-slot filled"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/Broadway%20Deli.png" alt="Broadway Deli"></div>
-<div class="logo-slot filled"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/Wishbone.png" alt="Wishbone"></div>
-<div class="logo-slot filled"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/Wight%20Tea.png" alt="Wight Tea"></div>
-<div class="logo-slot filled"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/Community-Wealth-Builders-Logo.png" alt="Community Wealth Builders"></div>
-<div class="logo-slot filled"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/Best%20Level.png" alt="Best Level"></div>
-<div class="logo-slot filled"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/unnamed%20(7).png" alt="Supporting business"></div>
+<div class="logo-carousel">
+<div class="logo-track">
+<div class="logo-slot"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/mobtown.png" alt="Mobtown Vintage & Thrift"></div>
+<div class="logo-slot"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/wight%20tea.png" alt="Wight Tea Co"></div>
+<div class="logo-slot"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/wishbone.png" alt="Wishbone"></div>
+<div class="logo-slot"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/BLWC.png" alt="Best Level Wellness Center"></div>
+<div class="logo-slot"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/affogatto.png" alt="Affogatto Cafe + Cats"></div>
+<div class="logo-slot"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/CWB.png" alt="Community Wealth Builders"></div>
+<div class="logo-slot"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/Chopped%20Broadway.png" alt="Chopped Broadway"></div>
+<div class="logo-slot"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/The%20Artist%20Exchange.png" alt="The Artist Exchange"></div>
+<div class="logo-slot"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/Tom%20Cats.png" alt="Tom Cats"></div>
+<div class="logo-slot"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/Sacre%20Sucre.png" alt="Sacré Sucré"></div>
+<div class="logo-slot" aria-hidden="true"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/mobtown.png" alt=""></div>
+<div class="logo-slot" aria-hidden="true"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/wight%20tea.png" alt=""></div>
+<div class="logo-slot" aria-hidden="true"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/wishbone.png" alt=""></div>
+<div class="logo-slot" aria-hidden="true"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/BLWC.png" alt=""></div>
+<div class="logo-slot" aria-hidden="true"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/affogatto.png" alt=""></div>
+<div class="logo-slot" aria-hidden="true"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/CWB.png" alt=""></div>
+<div class="logo-slot" aria-hidden="true"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/Chopped%20Broadway.png" alt=""></div>
+<div class="logo-slot" aria-hidden="true"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/The%20Artist%20Exchange.png" alt=""></div>
+<div class="logo-slot" aria-hidden="true"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/Tom%20Cats.png" alt=""></div>
+<div class="logo-slot" aria-hidden="true"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/Sacre%20Sucre.png" alt=""></div>
+</div>
 </div>
 <div class="add-logo-note">
 <strong><span data-lang="en">Own a Baltimore small business?</span><span data-lang="es">¿Tienes un pequeño negocio en Baltimore?</span></strong> <span data-lang="en">Add your name below and we'll reach out to get your logo on this page.</span><span data-lang="es">Añade tu nombre abajo y nos comunicaremos para incluir tu logo en esta página.</span>
