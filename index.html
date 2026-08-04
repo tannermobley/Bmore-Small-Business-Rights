@@ -1095,17 +1095,22 @@ document.getElementById('btn-es').classList.remove('active');
 </style>
 
 <script>
+var gfmArmed = false;
 function closeGfm(e, force) {
   if (!force && e.target.id !== 'gfm-overlay') return;
   document.getElementById('gfm-overlay').classList.remove('open');
   document.body.style.overflow = '';
 }
 function showGfm() {
+  if (!gfmArmed) return;
   if (sessionStorage.getItem('gfmSeen')) return;
   sessionStorage.setItem('gfmSeen', '1');
   document.getElementById('gfm-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+document.addEventListener('mousemove', function() {
+  setTimeout(function() { gfmArmed = true; }, 5000);
+}, { once: true });
 document.addEventListener('mouseout', function(e) {
   if (!e.relatedTarget && e.clientY <= 5) showGfm();
 });
