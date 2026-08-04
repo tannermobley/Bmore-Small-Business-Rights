@@ -1072,5 +1072,43 @@ document.getElementById('btn-es').classList.remove('active');
 </div>
 </div>
 </div>
+<div class="gfm-overlay" id="gfm-overlay" onclick="closeGfm(event)">
+<div class="gfm-modal">
+<button class="gfm-close" onclick="closeGfm(event, true)" aria-label="Close">✕</button>
+<h3><span data-lang="en">Keep This Campaign Running</span><span data-lang="es">Mantén Viva Esta Campaña</span></h3>
+<p><span data-lang="en">We're a volunteer coalition of Baltimore small business owners and neighbors. Every dollar goes to organizing, printing, and getting owners in the room at City Hall.</span><span data-lang="es">Somos una coalición voluntaria de dueños de pequeños negocios y vecinos de Baltimore. Cada dólar se destina a organizar, imprimir y llevar a los dueños a la alcaldía.</span></p>
+<a href="https://gofundme.com/f/defend-baltimore-small-businesses-now" target="_blank" class="gfm-btn"><span data-lang="en">Chip In on GoFundMe</span><span data-lang="es">Contribuir en GoFundMe</span></a>
+<button class="gfm-skip" onclick="closeGfm(event, true)"><span data-lang="en">Maybe later, take me to the petition</span><span data-lang="es">Quizás después, llévame a la petición</span></button>
+</div>
+</div>
+
+<style>
+.gfm-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:2000; align-items:center; justify-content:center; padding:20px; }
+.gfm-overlay.open { display:flex; }
+.gfm-modal { background:#FFFFFF; border-radius:16px; max-width:420px; width:100%; padding:36px 32px 28px; position:relative; text-align:center; box-shadow:0 12px 48px rgba(0,0,0,0.3); }
+.gfm-close { position:absolute; top:12px; right:14px; background:none; border:none; font-size:20px; color:#666; cursor:pointer; padding:6px; line-height:1; }
+.gfm-modal h3 { font-family:'Archivo Black',sans-serif; font-size:26px; color:#1C1C1C; margin-bottom:12px; line-height:1.15; }
+.gfm-modal p { font-size:14px; color:#3D3D3D; line-height:1.6; margin-bottom:22px; }
+.gfm-btn { display:block; background:#FAB829; color:#1C1C1C; font-family:'Archivo Black',sans-serif; font-size:18px; padding:16px; border-radius:10px; text-decoration:none; }
+.gfm-btn:hover { background:#e8a820; }
+.gfm-skip { background:none; border:none; color:#666; font-family:'DM Sans',sans-serif; font-size:13px; text-decoration:underline; cursor:pointer; margin-top:14px; }
+</style>
+
+<script>
+function closeGfm(e, force) {
+  if (!force && e.target.id !== 'gfm-overlay') return;
+  document.getElementById('gfm-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function showGfm() {
+  if (sessionStorage.getItem('gfmSeen')) return;
+  sessionStorage.setItem('gfmSeen', '1');
+  document.getElementById('gfm-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+document.addEventListener('mouseout', function(e) {
+  if (!e.relatedTarget && e.clientY <= 5) showGfm();
+});
+</script>
 </body>
 </html>
