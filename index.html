@@ -85,7 +85,7 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; o
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
 /* ── STATS BAR ── */
-.stats-bar { background: #D94F3D; padding: 36px 40px; }
+.stats-bar { background: #D94F3D; padding: 36px 30px; }
 .stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px; }
 .stat { color: #FFFFFF; }
 .stat-number { font-family: 'Archivo Black', sans-serif; font-size: 60px; line-height: 1; color: #FFFFFF; margin-bottom: 6px; text-shadow: 0 2px 12px rgba(0,0,0,0.2); }
@@ -93,6 +93,8 @@ body { font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; o
 
 /* ── CONTENT ── */
 .content { max-width: 1100px; margin: 0 auto; padding: 64px 40px; color: #1C1C1C; }
+.town-hall-rsvp img {width: 100%; height: 100%; min-height: auto; border-radius: 5%; display: flex;
+    flex-direction: row; align-items: center; padding-bottom: 52px}
 .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #666; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
 .section-label::before { content: ''; display: block; width: 28px; height: 2px; background: #D94F3D; flex-shrink: 0; }
 .intro-text { font-size: 19px; font-weight: 400; line-height: 1.75; color: #1C1C1C; margin-bottom: 52px; padding-bottom: 52px; border-bottom: 2px solid #C8DDE8; }
@@ -493,7 +495,7 @@ span[data-lang="es"] { display: none; }
 <section class="hero">
 <div class="hero-inner">
 <div class="hero-left">
-<h1><span style="font-size:0.5em; display:block; color:#1C1C1C; letter-spacing:0.05em; margin-bottom:4px;"><span data-lang="en">It's Time for a Baltimore</span><span data-lang="es">Es el Momento para un Baltimore</span></span><span><span data-lang="en">Small Business <span style="white-space:nowrap;">Bill of Rights</span></span><span data-lang="es">Small Business <span style="white-space:nowrap;">Bill of Rights</span></span></span></h1>
+<h1><span style="font-size:0.5em; display:block; color:#1C1C1C; letter-spacing:0.05em; margin-bottom:4px;"><span data-lang="en">This is the TEST website </span><span data-lang="es">Es el Momento para un Baltimore</span></span><span><span data-lang="en">Small Business <span style="white-space:nowrap;">Bill of Rights</span></span><span data-lang="es">Small Business <span style="white-space:nowrap;">Bill of Rights</span></span></span></h1>
 <p class="hero-sub"><span data-lang="en">Our neighborhood spots, the ones that put the charm in Charm City, are at constant risk of closing their doors because of unchecked predatory landlords. They <a href="https://www.baltimoresun.com/2026/01/15/dont-know-tavern-to-close-after-problems/" target="_blank">refuse lease renewals without cause,</a> <a href="https://www.thebanner.com/culture/food-drink/golden-west-cafe-hampden-move-QJPEDBK57VEHFPCRUTGK6OILVM/" target="_blank">spike rents overnight with no notice,</a> <a href="https://www.baymgmtgroup.com/blog/gross-lease-vs-net-lease-vs-triple-net-lease/#triple" target="_blank">force them to pay for building repairs in buildings they don’t even own,</a> or <a href="https://www.baltimoresun.com/2026/01/12/chihuahua-brothers-tacos/" target="_blank">even change the locks</a> with business property still inside. This leads to closures and hundreds of vacant spaces, often for years. It’s time for us to say enough is enough.</span><span data-lang="es">Los establecimientos de nuestro barrio —esos que le dan su encanto a Charm City— corren el riesgo constante de cerrar sus puertas debido a propietarios abusivos que actúan sin control. Ellos <a href="https://www.baltimoresun.com/2026/01/15/dont-know-tavern-to-close-after-problems/" target="_blank">se niegan a renovar los contratos de alquiler sin causa justificada,</a> <a href="https://www.thebanner.com/culture/food-drink/golden-west-cafe-hampden-move-QJPEDBK57VEHFPCRUTGK6OILVM/" target="_blank">disparan los precios de la renta de la noche a la mañana y sin previo aviso,</a><a href="https://www.baymgmtgroup.com/blog/gross-lease-vs-net-lease-vs-triple-net-lease/#triple" target="_blank"> obligan a los inquilinos a pagar reparaciones de inmuebles que ni siquiera les pertenecen,</a> o <a href="https://www.baltimoresun.com/2026/01/12/chihuahua-brothers-tacos/" target="_blank">cambian las cerraduras</a> mientras el mobiliario y las mercancías del negocio siguen dentro. Todo esto deriva en cierres y en la existencia de cientos de locales vacíos, a menudo durante años. Es hora de que digamos basta ya.</span></p>
 <span><p class="hero-sub"><span data-lang="en"><a href="https://gofundme.com/f/defend-baltimore-small-businesses-now/cl/o?attribution_id=sl:3973e350-e1f2-4c53-95d9-b8d3462b8bc9&lang=en_US&ts=1783637454&utm_campaign=man_sharesheet_dash&utm_content=amp20_t1&utm_medium=customer&utm_source=copy_link" target="_blank" rel="noopener"> <button class="fund-button">Support us on GoFundMe</button></a></span><span data-lang="es"><a href="https://www.gofundme.com/f/defend-baltimore-small-businesses-now/cl/o?attribution_id=sl:3973e350-e1f2-4c53-95d9-b8d3462b8bc9&lang=en_US&ts=1783637454&utm_campaign=man_sharesheet_dash&utm_content=amp20_t1&utm_medium=customer&utm_source=copy_link"> <button class="fund-button">Apóyanos en GoFundMe</button></a></span></p></span>
 <div style="display:flex; align-items:center; gap:10px; margin-top:4px; justify-content:center;">
@@ -542,6 +544,8 @@ span[data-lang="es"] { display: none; }
 
 <div class="content">
 
+<div class="town-hall-rsvp"><div style= "margin-left: auto; margin-right: auto;"> <a href= "https://actionnetwork.org/events/bsbrc-town-hall/" target="_blank"><img src="https://tannermobley.github.io/Bmore-Small-Business-Rights/town-hall-rsvp.png" alt="Our first Town Hall is on Monday, August 17, 7pm, at Le Mondo. Please join us! RSVP at actionnetwork.org/events/bsbrc-town-hall"></a></div></div>
+  
 <div style="display:flex; align-items:center; gap:12px; margin-bottom:28px; padding:16px 20px; background:#FFFFFF; border-radius:12px; border-left:5px solid #E8A838; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
 <div style="font-size:28px;">🏪</div>
 <div style="font-size:14px; color:#3D3D3D; line-height:1.5;"><strong style="color:#1C1C1C;"><span data-lang="en">Every $100 spent locally keeps $48 in Baltimore.</span><span data-lang="es">Cada $100 gastado localmente mantiene $48 en Baltimore.</span></strong> <span data-lang="en">Spend it at a chain? Less than $14 stays here.</span><span data-lang="es">¿Gastarlo en una cadena? Menos de $14 se queda aquí.</span></div>
