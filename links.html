@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme: light only;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>B'More Small Biz Rights Coalition</title>
+<meta property="og:title" content="B'More Small Biz Rights Coalition">
+<meta property="og:description" content="Tired of empty storefronts? Baltimore small businesses are joining forces.">
+<meta property="og:url" content="https://www.bmoresmallbusinessrights.com/links">
+<meta property="og:image" content="https://www.bmoresmallbusinessrights.com/share-card.png">
+<link rel="icon" type="image/png" href="https://tannermobley.github.io/Bmore-Small-Business-Rights/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--sky:#C8E6F5;
+--sky-deep:#A8D4EC;
+--amber:#E8A838;
+--amber-hi:#F5C042;
+--coral:#E8895A;
+--red:#D94F3D;
+--ink:#1C1C1C;
+--white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{
+background:#C8E6F5 !important;
+color:#1C1C1C !important;
+color-scheme:light only;
+-webkit-text-size-adjust:100%;
+}
+body{
+font-family:'Lexend',sans-serif;
+min-height:100vh;
+display:flex;
+justify-content:center;
+padding:0;
+}
+
+/* the whole page is one printed sheet */
+.sheet{
+width:100%;
+max-width:430px;
+background:var(--white);
+padding:16px 16px 22px;
+display:flex;
+flex-direction:column;
+}
+
+.cond{
+font-family:'Barlow Condensed',sans-serif;
+font-weight:700;
+text-transform:uppercase;
+}
+
+/* ── masthead: text sitting in hard color blocks ── */
+.head-amber{
+background:var(--amber);
+padding:14px 16px 12px;
+}
+.head-amber h1{
+font-size:44px;
+line-height:.9;
+letter-spacing:.005em;
+color:var(--ink);
+}
+.head-sky{
+background:var(--sky);
+padding:11px 16px 12px;
+}
+.head-sky .line1{
+font-size:16px;
+line-height:1.05;
+letter-spacing:.01em;
+color:var(--ink);
+}
+.head-sky .line2{
+font-size:24px;
+line-height:1;
+letter-spacing:.005em;
+color:var(--red);
+margin-top:4px;
+}
+
+/* ── link plates: flat rectangles with a hard offset shadow ── */
+.stack{display:flex;flex-direction:column;gap:11px;margin-top:16px;}
+
+.plate{
+display:flex;
+align-items:stretch;
+text-decoration:none;
+color:var(--ink);
+background:var(--white);
+border:2px solid var(--ink);
+box-shadow:5px 5px 0 var(--ink);
+transition:transform .1s ease, box-shadow .1s ease;
+}
+.plate:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink);}
+@media (hover:hover){
+.plate:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 var(--ink);}
+}
+.rail{width:12px;flex-shrink:0;background:var(--red);}
+.plate.a .rail{background:var(--amber);}
+.plate.c .rail{background:var(--coral);}
+.plate.k .rail{background:var(--ink);}
+
+.body{padding:13px 14px;flex:1;min-width:0;}
+.body strong{
+display:block;
+font-family:'Barlow Condensed',sans-serif;
+font-weight:700;
+text-transform:uppercase;
+font-size:21px;
+line-height:1;
+letter-spacing:.015em;
+}
+.body span{
+display:block;
+font-size:12.5px;
+font-weight:300;
+line-height:1.4;
+color:#4a4a4a;
+margin-top:5px;
+}
+.tick{
+align-self:center;
+padding-right:14px;
+font-size:19px;
+color:var(--ink);
+flex-shrink:0;
+}
+
+/* the primary ask is a filled plate */
+.plate.primary{background:var(--red);border-color:var(--ink);}
+.plate.primary .rail{background:var(--ink);}
+.plate.primary .body{padding:18px 14px;}
+.plate.primary .body strong{font-size:30px;color:var(--white);}
+.plate.primary .body span{color:rgba(255,255,255,.9);font-size:13px;}
+.plate.primary .tick{color:var(--white);font-size:22px;}
+
+.plate.fund{background:var(--amber);}
+.plate.fund .rail{background:var(--ink);}
+.plate.fund .body strong{font-size:24px;}
+.plate.fund .body span{color:rgba(28,28,28,.72);}
+
+/* ── color bar, straight off the flyer ── */
+.bars{display:flex;height:9px;margin-top:20px;}
+.bars i{flex:1;}
+.bars i:nth-child(1){background:var(--coral);}
+.bars i:nth-child(2){background:var(--amber);}
+.bars i:nth-child(3){background:var(--sky-deep);}
+.bars i:nth-child(4){background:var(--red);}
+.bars i:nth-child(5){background:var(--ink);}
+
+/* ── footer ── */
+.foot{margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+.ig{
+width:36px;height:36px;
+background:var(--ink);
+display:inline-flex;
+align-items:center;justify-content:center;
+}
+.ig svg{width:19px;height:19px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+.foot .site{
+font-family:'Barlow Condensed',sans-serif;
+font-weight:700;
+text-transform:uppercase;
+font-size:15px;
+letter-spacing:.06em;
+color:var(--ink);
+text-decoration:none;
+}
+.foot .org{
+font-family:'Barlow Condensed',sans-serif;
+font-weight:600;
+text-transform:uppercase;
+font-size:11px;
+letter-spacing:.13em;
+color:#6b7880;
+text-align:center;
+}
+
+@media (prefers-reduced-motion:reduce){
+.plate{transition:none;}
+.plate:hover,.plate:active{transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+<header>
+<div class="head-amber">
+<h1 class="cond">Tired of empty storefronts?</h1>
+</div>
+<div class="head-sky">
+<div class="line1 cond">B'more small businesses have no legal protections.</div>
+<div class="line2 cond">We're changing that.</div>
+</div>
+</header>
+
+<nav class="stack">
+
+<a class="plate primary" href="https://www.bmoresmallbusinessrights.com">
+<span class="rail"></span>
+<span class="body">
+<strong>Sign the petition</strong>
+<span>Goes straight to your councilmember</span>
+</span>
+<span class="tick">→</span>
+</a>
+
+<a class="plate a" href="https://actionnetwork.org/events/bsbrc-town-hall" target="_blank" rel="noopener">
+<span class="rail"></span>
+<span class="body">
+<strong>Town hall · Mon 8/17</strong>
+<span>7 PM at Le Mondo, 406 N Howard St</span>
+</span>
+<span class="tick">→</span>
+</a>
+
+<a class="plate c" href="https://docs.google.com/forms/d/e/1FAIpQLSdlj46KUkhaVp7Km95FsPFrluHy198ebYZF652wZbfHgdO7lg/viewform" target="_blank" rel="noopener">
+<span class="rail"></span>
+<span class="body">
+<strong>Join the fight</strong>
+<span>Volunteer, or sign your business on to the coalition</span>
+</span>
+<span class="tick">→</span>
+</a>
+
+<a class="plate k" href="https://drive.google.com/file/d/11OgXeqT4mvjoxo4dt3Yv6WGHxxDDHLyL/view" target="_blank" rel="noopener">
+<span class="rail"></span>
+<span class="body">
+<strong>Print a window sign</strong>
+<span>Help us spread the word and ramp up pressure on Council</span>
+</span>
+<span class="tick">→</span>
+</a>
+
+<a class="plate fund" href="https://gofundme.com/f/defend-baltimore-small-businesses-now" target="_blank" rel="noopener">
+<span class="rail"></span>
+<span class="body">
+<strong>Fund our volunteer movement</strong>
+<span>Every dollar goes to flyers, printing, and walks</span>
+</span>
+<span class="tick">→</span>
+</a>
+
+</nav>
+
+<div class="bars"><i></i><i></i><i></i><i></i><i></i></div>
+
+<footer class="foot">
+<a class="ig" href="https://instagram.com/bmoresmallbizrights" target="_blank" rel="noopener" aria-label="Follow @bmoresmallbizrights on Instagram">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<rect x="3" y="3" width="18" height="18"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17.4" cy="6.6" r="1.1" fill="#fff" stroke="none"></circle>
+</svg>
+</a>
+<a class="site" href="https://www.bmoresmallbusinessrights.com">bmoresmallbusinessrights.com</a>
+<p class="org">B'More Small Biz Rights Coalition</p>
+</footer>
+
+</div>
+
+</body>
+</html>
