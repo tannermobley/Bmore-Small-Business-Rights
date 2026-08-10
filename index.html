@@ -1081,13 +1081,13 @@ document.getElementById('btn-es').classList.remove('active');
 <style>
 .gfm-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:2000; align-items:center; justify-content:center; padding:20px; }
 .gfm-overlay.open { display:flex; }
-.gfm-modal { background:#FFFFFF; border-radius:16px; max-width:420px; width:100%; padding:36px 32px 28px; position:relative; text-align:center; box-shadow:0 12px 48px rgba(0,0,0,0.3); }
-.gfm-close { position:absolute; top:12px; right:14px; background:none; border:none; font-size:20px; color:#666; cursor:pointer; padding:6px; line-height:1; }
-.gfm-modal h3 { font-family:'Archivo Black',sans-serif; font-size:26px; color:#1C1C1C; margin-bottom:12px; line-height:1.15; }
-.gfm-modal p { font-size:14px; color:#3D3D3D; line-height:1.6; margin-bottom:22px; }
-.gfm-btn { display:block; background:#FAB829; color:#1C1C1C; font-family:'Archivo Black',sans-serif; font-size:18px; padding:16px; border-radius:10px; text-decoration:none; }
-.gfm-btn:hover { background:#e8a820; }
-.gfm-skip { background:none; border:none; color:#666; font-family:'DM Sans',sans-serif; font-size:13px; text-decoration:underline; cursor:pointer; margin-top:14px; }
+.gfm-modal { background:#FFFFFF; border:3px solid #1C1C1C; box-shadow:10px 10px 0 #D94F3D; max-width:420px; width:100%; padding:34px 30px 26px; position:relative; text-align:center; }
+.gfm-close { position:absolute; top:10px; right:12px; background:none; border:none; font-size:20px; color:#666; cursor:pointer; padding:6px; line-height:1; }
+.gfm-modal h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; text-transform:uppercase; font-size:38px; line-height:.95; color:#1C1C1C; margin-bottom:12px; }
+.gfm-modal p { font-family:'Lexend',sans-serif; font-weight:300; font-size:14px; color:#3D3D3D; line-height:1.6; margin-bottom:20px; }
+.gfm-btn { display:block; background:#FAB829; color:#1C1C1C; border:2px solid #1C1C1C; box-shadow:5px 5px 0 #1C1C1C; font-family:'Barlow Condensed',sans-serif; font-weight:700; text-transform:uppercase; font-size:24px; letter-spacing:.02em; padding:15px; text-decoration:none; transition:transform .1s ease, box-shadow .1s ease; }
+.gfm-btn:hover { background:#e8a820; transform:translate(-1px,-1px); box-shadow:6px 6px 0 #1C1C1C; }
+.gfm-skip { background:none; border:none; color:#666; font-family:'Lexend',sans-serif; font-weight:300; font-size:13px; text-decoration:underline; cursor:pointer; margin-top:16px; }
 </style>
 
 <script>
