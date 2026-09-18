@@ -109,7 +109,16 @@ font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: u
 .data-big span { color: #E8A838; }
 .data-desc { font-size: 13px; font-weight: 300; color: #C8C4BC; line-height: 1.55; margin-top: 8px; }
 
-/* â”€â”€ PROBLEMS â”€â”€ */
+/* ── IN THE NEWS ── */
+.news { margin-bottom: 52px; padding-bottom: 52px; border-bottom: 2px solid #C8DDE8; }
+.news h2 { font-family: 'Archivo Black', sans-serif; font-size: 28px; letter-spacing: 0.02em; margin-bottom: 8px; color: #1C1C1C; }
+.publication-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.publication-card { background: #FFFFFF; padding: 24px 20px; border-top: 4px solid #E8A838; border-radius: 0 0 12px 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.publication-name { font-family: 'Archivo Black', sans-serif; font-size: 22px; letter-spacing: 0.04em; margin-bottom: 8px; color: #1C1C1C; }
+.publication-card p { font-size: 13px; color: #3D3D3D; line-height: 1.6; }
+.publication-logo img {height: 50px; }
+  
+/* PROBLEMS */
 .problems { margin-bottom: 48px; }
 .problems h2, .demands h2, .precedent h2 { font-size: 40px; letter-spacing: .01em; line-height: .98; margin-bottom: 24px; color: #1C1C1C; }
 .problem-item { display: flex; gap: 18px; margin-bottom: 14px; padding: 22px 24px; background: #FFFFFF; border: 2px solid #1C1C1C; border-left-width: 12px; border-left-color: #D94F3D; box-shadow: 5px 5px 0 #1C1C1C; }
@@ -201,7 +210,7 @@ border-top: 2px solid #1C1C1C;
 .mamdani-note { background: #E8A838; padding: 22px 24px; font-size: 14px; font-weight: 300; line-height: 1.65; color: #1C1C1C; border: 2px solid #1C1C1C; box-shadow: 5px 5px 0 #1C1C1C; }
 .mamdani-note strong { font-weight: 500; }
 
-/* â”€â”€ SUPPORTERS â”€â”€ */
+/* SUPPORTERS */
 .supporters { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 3px solid #1C1C1C; }
 .supporters h2 { font-size: 40px; letter-spacing: .01em; margin-bottom: 10px; color: #1C1C1C; }
 .supporters-sub { font-size: 15px; font-weight: 300; color: #3D3D3D; margin-bottom: 26px; line-height: 1.7; }
@@ -223,7 +232,7 @@ border-top: 2px solid #1C1C1C;
 .add-logo-note { background: #1C1C1C; padding: 22px 24px; font-size: 13px; font-weight: 300; color: #C8C4BC; line-height: 1.65; border: 2px solid #1C1C1C; box-shadow: 5px 5px 0 #D94F3D; }
 .add-logo-note strong { display: block; color: #E8A838; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 26px; letter-spacing: .015em; line-height: 1; margin-bottom: 8px; }
 
-/* â”€â”€ PETITION FORM â”€â”€ */
+/* PETITION FORM */
 .petition-form { background: #1C1C1C; color: #FFFFFF; padding: 52px 40px; margin: 0 -40px; }
 .petition-form h2 { font-size: 52px; letter-spacing: .01em; line-height: .95; margin-bottom: 10px; color: #FFFFFF; }
 .form-sub { font-size: 15px; font-weight: 300; color: #C8C4BC; margin-bottom: 32px; line-height: 1.65; }
@@ -256,12 +265,12 @@ border-top: 2px solid #1C1C1C;
 .share-btn.reddit { background: #FF4500; color: white; }
 .share-btn.copy { background: #555; color: white; }
 
-/* â”€â”€ FOOTER â”€â”€ */
+/* FOOTER */
 footer { background: #A8D4EC; border-top: 3px solid #1C1C1C; padding: 26px 40px; text-align: center; font-size: 12px; color: #666; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
 .footer-logo { display: flex; align-items: center; gap: 10px; }
 .footer-logo img { width: 32px; height: 32px; object-fit: contain; }
 
-/* â”€â”€ MOBILE â”€â”€ */
+/* MOBILE */
 @media (max-width: 760px) {
 .hero-inner { grid-template-columns: 1fr; }
 .hero-left { padding: 32px 20px 76px; align-items: flex-start; text-align: left; }
@@ -519,6 +528,29 @@ span[data-lang="es"] { display: none; }
 <span data-lang="es">Las pequeñas empresas de Baltimore no solo crean empleos: <strong>por cada 100 dólares que se gastan en una empresa local de la ciudad, 48 dólares permanecen circulando en nuestra economía local.</strong> Los negocios independientes constituyen la base impositiva, los pilares de la comunidad y el alma de los barrios de toda la ciudad. Sin embargo, en la actualidad <strong>carecen prácticamente de protección legal</strong> frente a los propietarios que pretenden expulsarlos o cobrarles tarifas injustas. Esta falta de garantías legales básicas para los arrendatarios comerciales es una de las causas de la gran cantidad de locales vacíos, un problema que el Concejo Municipal de Baltimore tiene la capacidad de solucionar.</span>
 </p>
 
+<div class="news">
+<div class="section-label"><span data-lang="en">Spread the word</span><span data-lang="es">Corre la voz</span></div>
+<h2><span data-lang="en">In the News</span><span data-lang="es">En las noticias</span></h2>
+
+
+<div class="publication-cards">
+    <div class="publication-card">
+        <div class="publication-name"><span data-lang="en"><a href="https://technical.ly/civics/baltimore-small-business-coalition-commercial-tenant-rights/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">Technical.ly</a></span><span data-lang="es"><a href="https://technical.ly/civics/baltimore-small-business-coalition-commercial-tenant-rights/" target="_blank"style="color:#3D3D3D; text-decoration:underline;">Technical.ly</a></span></div>
+        <span data-lang="en"><h4>With more town halls on the horizon, the coalition plans to build out its base with volunteers to conduct research, lead marketing and pack City Hall once its proposed legislation hits the floor.</h4> <p>Maria Eberhart</p></span>
+        <span data-lang="es"><h4>Con más asambleas públicas en el horizonte, la coalición planea crecer su base con voluntarios que realicen investigación, lideren marketing y abarroten el Palacio Municipal una vez que su legislación propuesta llegue al pleno.</h4> <p>Maria Eberhart</p></span>
+    </div>
+    <div class="publication-card">
+        <div class="publication-name"><span data-lang="en"><a href="https://www.cbsnews.com/baltimore/news/small-business-coalition-in-baltimore/" target="_blank" style="color:#3D3D3D; text-decoration:underline;">WJZ (CBS)</a></span><span data-lang="es"><a href="https://www.cbsnews.com/baltimore/news/small-business-coalition-in-baltimore/" target="_blank"style="color:#3D3D3D; text-decoration:underline;">WJZ (CBS)</a></span></div>
+        <span data-lang="en"><h4>"If you wanna be a city that says we wanna bring in small businesses, help build a new city -- if we're dealing with issues like this, it makes it very difficult," Rodriguez said.</h4> <p>Dennis Valera</p></span>
+        <span data-lang="es"><h4>“Si quieres ser una ciudad que dice que quiere atraer pequeñas empresas, ayude a construir una nueva ciudad — si estamos lidiando con problemas como este, lo hace muy difícil', dijo Rodríguez.</h4> <p>Dennis Valera</p></span>                                                                                                                                                                                                                                                 
+    </div>
+     <div class="publication-card">
+        <div class="publication-name"><span data-lang="en"><a href="https://www.wmar2news.com/news/region/baltimore-city/baltimore-small-businesses-join-forces-to-combat-vacant-storefronts-and-push-for-protection" target="_blank" style="color:#3D3D3D; text-decoration:underline;">WMAR (ABC)</a></span><span data-lang="es"><a href="https://www.wmar2news.com/news/region/baltimore-city/baltimore-small-businesses-join-forces-to-combat-vacant-storefronts-and-push-for-protection" target="_blank"style="color:#3D3D3D; text-decoration:underline;">WMAR (ABC)</a></span></div>
+        <span data-lang="en"><h4>"It takes forever to find a space, you finally find one and then starts the bureaucracy," Mobley said. "You finally get open after dealing with all the red tape, and hopefully you have a good landlord because the city of Baltimore has practically no protections in place for commercial tenants."</h4> <p>Taylor Epps</p></span>
+        <span data-lang="es"><h4>"Se necesita una eternidad para encontrar un espacio, finalmente se encuentra uno y luego comienza la burocracia", dijo Mobley. "Finalmente se abre después de lidiar con toda la burocracia, y espero que tenga un buen propietario porque la ciudad de Baltimore prácticamente no tiene protecciones para los inquilinos comerciales".</h4> <p>Taylor Epps</p></span>                                                                                                                                                                                                                                                 
+    </div>
+</div>
+  
 <div class="problems">
 <h2><span data-lang="en">4 ISSUES WE CAN FIX</span><span data-lang="es">Las Reglas Están en Nuestra Contra</span></h2>
 
