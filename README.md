@@ -88,7 +88,8 @@ You must have these items:
 | --- | --- |
 | `index.html` | The main campaign page. |
 | `links.html` | The link page for social media profiles. |
-| `assets/` | The images and logos. |
+| `assets/` | Site images (favicon, banners, flyers). |
+| `assets/businesses/` | Supporter business logos for the carousel. |
 | `CNAME` | The custom domain for GitHub Pages. |
 
 ### Change the text
@@ -102,18 +103,18 @@ You must have these items:
 
 ### Add a supporter logo
 
-1. Put the logo file in the `assets/` folder.
+1. Put the logo file in the `assets/businesses/` folder.
 2. Use a PNG file with a transparent background.
 3. Make sure that the logo shows clearly on a white background.
 4. Open `index.html`.
 5. Find the `logo-track` element.
 6. Add a line for the logo in the first list:
    ```html
-   <div class="logo-slot"><img src="assets/your-logo.png" alt="Business Name"></div>
+   <div class="logo-slot"><img src="assets/businesses/your-logo.png" alt="Business Name"></div>
    ```
 7. Add a line for the logo in the second list:
    ```html
-   <div class="logo-slot" aria-hidden="true"><img src="assets/your-logo.png" alt=""></div>
+   <div class="logo-slot" aria-hidden="true"><img src="assets/businesses/your-logo.png" alt=""></div>
    ```
 
 > **Note:** The second list makes the logo scroll continuously. Do not remove it.
